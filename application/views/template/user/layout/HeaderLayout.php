@@ -35,9 +35,9 @@
 
                 <?php if (is_login()) :  ?>
                     <li><a href="#belum"><?php echo $this->session->userdata('username') ?></a></li>
-                    <li><a href="<?php echo base_url('/auth/logout'); ?>" class="button">Logout</a></li>
+                    <li><a href="<?php echo base_url('/Login/logout'); ?>" class="button">Logout</a></li>
                 <?php else : ?>
-                    <li><a href="<?php echo base_url('index.php/auth'); ?>" class="button">Masuk</a></li>
+                    <li><a href="<?php echo base_url('Login'); ?>" class="button">Masuk</a></li>
                 <?php endif; ?>
             </ul>
         </nav><!-- .main-nav -->

@@ -22,7 +22,7 @@
                 <h2>INFORMASI</h2>
                 <p class="text-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et molestie ac feugiat sed. Diam volutpat commodo.</p>
                 <p class="text-2"><span>Eu ultrices:</span> Vitae auctor eu augue ut. Malesuada nunc vel risus commodo viverra. Praesent elementum facilisis leo vel.</p>
-                <form action="<?php echo site_url('Auth'); ?>" method="post">
+                <form action="<?php echo site_url('Login'); ?>" method="post">
                     <div class="form-left-last">
                         <input type="submit" name="account" class="account" value="Sudah Memiliki Akun">
                     </div>
@@ -32,24 +32,24 @@
                 <h2>Form Pendaftaran</h2>
                 <div class="form-row">
                     <label for="Username">Username</label>
-                    <input type="text" name="username" id="username" class="input-text">
-                    <label class="text-danger"><span style="color:green">MATA HIJAU</span>.
-                    </label>
+                    <br />
+                    <label id="username_result"></label>
+                    <input type="text" name="username" id="username" class="input-text" required>
                 </div>
-                <br />
                 <div class="form-row">
-
                     <label for="Email">Email</label>
-                    <input type="email" name="email" id="email" class="input-text">
+                    <input type="email" name="email" id="email" class="input-text" required>
                 </div>
                 <div class="form-row">
                     <label for="Nama Perusahaan">Nama Perusahaan</label>
-                    <input type="text" name="name" id="name" class="input-text">
-                    <p id="name_result"></p>
+                    <br />
+                    <label id="name_result"></label>
+                    <input type="text" name="name" id="name" class="input-text" required>
+
                 </div>
                 <div class="form-row">
                     <label for="Nomor Telepon">Nomor Telepon</label>
-                    <input type="text" name="phone" id="nomor_telepon" class="input-text">
+                    <input type="text" name="phone" id="nomor_telepon" class="input-text" required>
                 </div>
                 <div class="form-group">
                     <div class="form-row form-row-1 ">
@@ -68,6 +68,7 @@
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script>
         // just for the demos, avoids form submit

@@ -15,7 +15,7 @@ class MY_Controller extends CI_Controller
     { // Fungsi ini berguna untuk mengecek apakah user sudah login atau belum
         // Pertama kita cek dulu apakah controller saat ini yang sedang diakses user adalah controller Auth apa bukan
         // Karena fungsi cek login hanya kita berlakukan untuk controller selain controller Auth
-        if ($this->uri->segment(1) != 'auth' && $this->uri->segment(1) != '') {
+        if ($this->uri->segment(1) != 'Login' && $this->uri->segment(1) != '') {
             // Cek apakah terdapat session dengan nama authenticated
 
             //Dicommant supaya ga stuck di halaman login ketika session belum ada

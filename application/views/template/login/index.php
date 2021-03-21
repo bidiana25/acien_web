@@ -40,7 +40,7 @@ if ($this->session->flashdata('message')) { // Jika ada
                     <img src="<?php echo base_url() ?>assets/NewBiz/img/acien2.png" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form" method="post" action="<?php echo base_url('auth/login'); ?>">
+                <form class="login100-form validate-form" method="post" action="<?php echo base_url('Login/login'); ?>">
                     <span class="login100-form-title">
                         Login Acien
                     </span>

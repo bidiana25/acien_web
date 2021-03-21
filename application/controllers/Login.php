@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends MY_Controller
+class Login extends MY_Controller
 {
 
     public function __construct()
@@ -29,7 +29,7 @@ class Auth extends MY_Controller
 
         if (empty($user)) { // Jika hasilnya kosong / user tidak ditemukan
             $this->session->set_flashdata('message', 'Username tidak ditemukan'); // Buat session flashdata
-            redirect('auth'); // Redirect ke halaman login
+            redirect('Login'); // Redirect ke halaman login
         } else {
             if ($password == $user->password) { // Jika password yang diinput sama dengan password yang didatabase
                 $session = array(
@@ -47,7 +47,7 @@ class Auth extends MY_Controller
                 redirect('c_dashboard'); // Redirect ke halaman home
             } else {
                 $this->session->set_flashdata('message', 'Password salah'); // Buat session flashdata
-                redirect('auth'); // Redirect ke halaman login
+                redirect('Login'); // Redirect ke halaman login
             }
         }
     }
@@ -55,7 +55,7 @@ class Auth extends MY_Controller
     public function logout()
     {
         $this->session->sess_destroy(); // Hapus semua session
-        redirect('auth'); // Redirect ke halaman login
+        redirect('Login'); // Redirect ke halaman login
     }
 
 
@@ -67,18 +67,18 @@ class Auth extends MY_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('notif', '<div class="alert alert-danger icons-alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line-circled"></i></button><p>Password Baru dan Konfirmasi Password harus sama!</p></div>');
-            redirect('auth/profile');
+            redirect('Login/profile');
         } else {
             $cek_old = $this->UserModel->cek_old();
             if ($cek_old == False) {
                 $this->session->set_flashdata('notif', '<div class="alert alert-danger icons-alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line-circled"></i></button><p> Password lama tidak sama!</p></div>');
-                redirect('auth/profile');
+                redirect('Login/profile');
             } else {
                 $data = ['password' => $this->input->post('new')];
                 $this->UserModel->save($data, $id);
                 $this->session->sess_destroy();
                 $this->session->set_flashdata('message', 'Password berhasil diubah, silahkan login kembali!');
-                redirect('auth');
+                redirect('Login');
             } //end if valid_user
         }
     }
