@@ -11,15 +11,26 @@ class M_payment_login extends CI_Model
         return $this->db->update('payment_login', $data);
     }
 
-    public function select_id($id)
+    public function select_by_username($username)
     {
-        $this->db->select('LEVEL_USER_ID');
-        $this->db->from('T_M_D_LEVEL_USER');
-        $this->db->where('LEVEL_USER', $id);
+        $this->db->select('*');
+        $this->db->from('payment_login');
+        $this->db->where('username', $username);
         $akun = $this->db->get();
         return $akun->result();
     }
 
+    
+
+
+    public function select_for_client()
+    {
+        $this->db->select('*');
+        $this->db->from('payment_login');
+        $this->db->where('mark_for_delete', false);
+        $akun = $this->db->get();
+        return $akun->result();
+    }
 
 
 

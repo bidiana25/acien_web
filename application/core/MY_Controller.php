@@ -48,9 +48,14 @@ class MY_Controller extends CI_Controller
 
     public function render_backend($page, $content = null)
     {
-        $data['header'] = $this->load->view('template/user/layout/HeaderLayout', '', TRUE);
+        $data['header'] = $this->load->view('template/user/layout/HeaderLayout', $content, TRUE);
         $data['footer'] = $this->load->view('template/user/layout/FooterLayout', '', TRUE);
         $data['content'] = $this->load->view($page, '', true);
         $this->load->view('template/user/UserTemplate', $data);
     }
+
+
+
+
+    
 }

@@ -42,11 +42,11 @@ if ($this->session->flashdata('message')) { // Jika ada
 
                 <form class="login100-form validate-form" method="post" action="<?php echo base_url('Login/login'); ?>">
                     <span class="login100-form-title">
-                        Login Acien
+                        <?=$anjing?>
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Inputkan username yang benar">
-                        <input class="input100" type="text" name="username" placeholder="Username">
+                        <input class="input100" type="text" name="username" placeholder="Username" value='<?= $this->session->userdata('registered_username') ?>'>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -71,7 +71,7 @@ if ($this->session->flashdata('message')) { // Jika ada
                         <span class="txt1">
                             Member Baru?
                         </span>
-                        <a class="txt2" href="<?= base_url('C_register/register'); ?>">
+                        <a class="txt2" href="<?= base_url('register'); ?>">
                             Buat Akun Baru
                         </a>
                     </div>

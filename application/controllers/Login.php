@@ -16,8 +16,12 @@ class Login extends MY_Controller
         if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
             redirect('c_dashboard'); // Redirect ke page home
 
+
+        $data = [
+          "anjing" => 'sampah'
+        ];
         // function render_login tersebut dari file core/MY_Controller.php
-        $this->render_login('template/login/index'); // Load view login.php
+        $this->render_login('template/login/index',$data); // Load view login.php
     }
 
     public function login()

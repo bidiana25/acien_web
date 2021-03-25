@@ -11,17 +11,24 @@ class M_companies extends CI_Model
         return $this->db->update('companies', $data);
     }
 
-    public function select_id($id)
+    public function select_by_id($company_id)
     {
-        $this->db->select('LEVEL_USER_ID');
-        $this->db->from('T_M_D_LEVEL_USER');
-        $this->db->where('LEVEL_USER', $id);
+        $this->db->select('*');
+        $this->db->from('companies');
+        $this->db->where('id', $company_id);
         $akun = $this->db->get();
         return $akun->result();
     }
 
 
-
+    public function select_by_company_postfix($company_postfix)
+    {
+        $this->db->select('*');
+        $this->db->from('companies');
+        $this->db->where('company_postfix', $company_postfix);
+        $akun = $this->db->get();
+        return $akun->result();
+    }
 
 
     public function select()
