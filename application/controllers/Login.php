@@ -18,7 +18,7 @@ class Login extends MY_Controller
 
 
         $data = [
-          "anjing" => 'sampah'
+          "anjing" => 'Login'
         ];
         // function render_login tersebut dari file core/MY_Controller.php
         $this->render_login('template/login/index',$data); // Load view login.php
@@ -36,19 +36,38 @@ class Login extends MY_Controller
             redirect('Login'); // Redirect ke halaman login
         } else {
             if ($password == $user->password) { // Jika password yang diinput sama dengan password yang didatabase
-                $session = array(
-                    'authenticated' => true, // Buat session authenticated dengan value true
-                    'username' => $user->username,  // Buat session username
-                    'nama' => $user->nama, // Buat session nama
-                    'id' => $user->id, // Buat session nama
-                    'email' => $user->email, // Buat session nama
-                    'password' => $user->password, // Buat session nama
-                    'photo' => $user->photo, // Buat session nama
-                    'role' => $user->role // Buat session role
-                );
 
-                $this->session->set_userdata($session); // Buat session sesuai $session
-                redirect('c_dashboard'); // Redirect ke halaman home
+                if($user->level_user_id==1)
+                {
+                    $session = array(
+                        'authenticated' => true, // Buat session authenticated dengan value true
+                        'username' => $user->username,  // Buat session username
+                        'nama' => $user->nama, // Buat session nama
+                        'id' => $user->id, // Buat session nama
+                        'email' => $user->email, // Buat session nama
+                        'password' => $user->password, // Buat session nama
+                        'photo' => $user->photo, // Buat session nama
+                        'role' => $user->role // Buat session role
+                    );
+
+                    $this->session->set_userdata($session); // Buat session sesuai $session
+                    redirect('status_kasir'); // Redirect ke halaman home
+                }
+
+
+                if($user->level_user_id==0)
+                {
+                    $session = array(
+                        'authenticated' => true, // Buat session authenticated dengan value true
+                        'password' => $user->password, 
+                        'username' => $user->username,
+                        'date_dashboard' => date('Y-m-d')
+                    );
+
+                    $this->session->set_userdata($session); // Buat session sesuai $session
+                    redirect('a_c_dashboard'); // Redirect ke halaman home
+                }
+                
             } else {
                 $this->session->set_flashdata('message', 'Password salah'); // Buat session flashdata
                 redirect('Login'); // Redirect ke halaman login

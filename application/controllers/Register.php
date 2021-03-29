@@ -70,7 +70,8 @@ class Register extends MY_Controller
                     'company_id' => $uniq_id,
                     'email' => $email,
                     'phone' => $phone_number,
-                    'mark_for_delete' => false
+                    'mark_for_delete' => false,
+                    'level_user_id' => 1
             );
 
             $this->m_payment_login->tambah($data);

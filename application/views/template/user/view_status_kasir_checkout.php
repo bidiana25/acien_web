@@ -1,5 +1,7 @@
 
 <?php
+
+  $paid = "<br> Bukti Pembayaran Sudah Diterima,<br> menunggu konfirmasi (maksimal 12 jam)";
     foreach ($company_status as $key => $value) 
     {                                        
         $expire_date= $value->expire_date;
@@ -13,7 +15,23 @@
         $total_day= $value->total_day;
         $payment_value= $value->payment_value;
         $payment_photo= $value->payment_photo;
+        $aproval = $value->aproval;
+        if($aproval=='f')
+        {
+          $aproval='Belum Diterima';
+        }
 
+        if($aproval=='t')
+        {
+          $aproval="Pembayaran Diterima <br> silahkan login ke <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a>";
+        }
+
+        
+        $status_pembayaran = '<br> Menunggu Bukti Pembayaran';
+        if($payment_photo!='')
+        {
+          $status_pembayaran = $paid;
+        }
     }
 ?>
 
@@ -24,11 +42,16 @@
 
 
 <!-- lib modal-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
+
+
+<!-- lib upload img-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 
 
@@ -43,7 +66,7 @@
         <div class="container">
             <br><br><br><br>
             <header class="section-header">
-                <h3>Status <a href='https://kasir-acien.online/' target="_blank">kasir-acien.online</a></h3>
+                <h3>Status <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a></h3>
                 <p>Silahkan melakukan payment sebelum expire date</p>
             </header>
 
@@ -87,8 +110,15 @@
                             </tr>
 
                             <tr>
-                                <th>Bukti Transfer</th>
-                                <th><a>: <?=($payment_photo)?></a>
+                                <th>Status Pembayaran</th>
+                                <th><a>: <?=($aproval)?></a>
+                                </th>
+                            </tr>
+
+
+                            <tr>
+
+                                <th><a id='status_pembayaran'><?=($status_pembayaran)?></a>
                                 </th>
                             </tr>
 
@@ -96,8 +126,17 @@
                         </table>
 
                         
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Metode Pembayaran</button>
+
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Upload Bukti Pembayaran</button>
+
+
 
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Batalkan Transaksi</button>
+
+
+
+
 
 
 
@@ -125,6 +164,135 @@
                           </div>
 
                         </form>
+
+
+
+                        <!-- Modal -->
+                          <div class="modal fade" id="myModal3" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                <h4 class="modal-title">Metode Pembayaran</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  
+                                </div>
+
+                                <div class="modal-body">
+                                  <table>
+                                    
+                                  
+                                  <?php
+                                  foreach ($list_bank as $key => $value) 
+                                  {
+                                    echo "<tr>";
+                                    echo "<th>";
+                                    echo "Nama Bank";
+                                    echo "</th>";
+
+                                    echo "<th>";
+                                    echo $value->bank;
+                                    echo "</th>";
+                                    echo "</tr>";
+
+
+                                    echo "<tr>";
+                                    echo "<th>";
+                                    echo "Atas Nama";
+                                    echo "</th>";
+
+
+
+                                    echo "<th>";
+                                    echo $value->atas_nama;
+                                    echo "</th>";
+                                    echo "</tr>";
+
+
+                                    echo "<tr>";
+                                    echo "<th>";
+                                    echo "Nomor Rekening";
+                                    echo "</th>";
+
+                                    echo "<th>";
+                                    echo $value->nomor_rekening;
+                                    echo "</th>";
+                                    echo "</tr>";
+
+                                    echo "<tr>";
+                                    echo "<th><br>";
+
+                                    echo "</th>";
+                                    echo "</tr>";
+
+                                  }
+
+                                  ?>
+                                  </table>
+                                </div>
+                                
+                                
+                              </div>
+                              
+                            </div>
+                          </div>
+
+                        </form>
+
+
+
+                        <!-- Modal upload payment-->
+                          <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog">
+                            
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                <h4 class="modal-title">Upload Bukti Pembayaran</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  
+                                </div>
+                                <form method="post" id="upload_form" align="center" enctype="multipart/form-data"> 
+                                <div class="modal-body">
+                                  
+                                
+                                 
+                                    <input type="file" name="image_file" id="image_file" />  
+                                    <br />  
+                                    <br />  
+                                      
+                                
+
+
+                                <div id="uploaded_image">
+                                <?php
+                                if($payment_photo!='')
+                                {
+                                  echo '<img src="' . base_url() . 'upload/' . $payment_photo . '" width="300" height="225" class="img-thumbnail" />';
+                                }
+                                
+                                ?>
+                                </div>
+                                </div>
+
+
+                                
+                                <div class="modal-footer">
+                                <input type="submit" name="upload" id="upload" value="Upload" class="btn btn-info" />
+                                </div>
+
+                                </form>
+                              </div>
+                              
+                            </div>
+                          </div>
+
+
+
+                        
+
+
                     </div>
 
                     
@@ -152,28 +320,37 @@
 
 
 
+<!-- #masukin IMG ajax -->
 
+<script>  
+ $(document).ready(function(){  
+      $('#upload_form').on('submit', function(e){  
+           e.preventDefault();  
+           if($('#image_file').val() == '')  
+           {  
+                alert("Please Select the File");  
+           }  
+           else  
+           {  
+                $.ajax({  
+                     url:"<?php echo base_url(); ?>status_kasir/ajax_upload",   
+                     //base_url() = http://localhost/tutorial/codeigniter  
+                     method:"POST",  
+                     data:new FormData(this),  
+                     contentType: false,  
+                     cache: false,  
+                     processData:false,  
+                     success:function(data)  
+                     {  
+                          $('#uploaded_image').html(data);
 
-
-
-
-
-<script type="text/javascript">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
+                          document.getElementById("status_pembayaran").text = "Bukti Pembayaran Sudah Diterima, menunggu konfirmasi (maksimal 12 jam)";
+                     }  
+                });  
+           }  
+      });  
+ });  
+ </script>
 
 
 

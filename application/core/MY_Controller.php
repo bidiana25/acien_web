@@ -56,6 +56,18 @@ class MY_Controller extends CI_Controller
 
 
 
+    public function render_backend_admin($page, $content = null)
+    {
+        $data['navbar'] = $this->load->view("template/backend/layout/NavbarLayout", $content, TRUE);
+        $data['sidebar'] = $this->load->view('template/backend/layout/SidebarLayout', '', TRUE);
+        $data['header_content'] = $this->load->view('template/backend/layout/HeaderContentLayout', '', TRUE);
+        $data['head_library'] = $this->load->view('template/backend/layout/head_library', '', TRUE);
+        $data['content'] = $this->load->view($page, '', true);
+        $this->load->view('template/backend/AdminTemplate', $data);
+    }
+
+
+
 
     
 }

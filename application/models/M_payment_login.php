@@ -5,9 +5,9 @@ class M_payment_login extends CI_Model
 
 
 
-    public function update($data, $id)
+    public function update($data, $username)
     {
-        $this->db->where('ID', $id);
+        $this->db->where('username', $username);
         return $this->db->update('payment_login', $data);
     }
 

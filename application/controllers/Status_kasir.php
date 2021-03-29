@@ -13,6 +13,7 @@ class Status_kasir extends MY_Controller
         $this->load->model('m_companies');
         $this->load->model('m_m_c_payment_method');
         $this->load->model('m_t_payment');
+        $this->load->model('m_m_c_bank');
     }
 
     public function index()
@@ -37,6 +38,7 @@ class Status_kasir extends MY_Controller
             }
 
             $data = [
+                "list_bank" =>  $this->m_m_c_bank->select(),
                 "company_status" => $this->m_companies->select_by_id($company_id),
                 "select_existing_payment" => $this->m_t_payment->select_existing_payment($this->session->userdata('username'))
             ];
@@ -94,6 +96,94 @@ class Status_kasir extends MY_Controller
             redirect('Status_kasir');
         }
     }
+
+
+
+
+
+
+    function image_upload()  
+      {  
+           $data['title'] = "Upload Image using Ajax JQuery in CodeIgniter";  
+           $this->load->view('image_upload', $data);  
+      }  
+      
+
+
+    function ajax_upload()
+    {
+        if (isset($_FILES["image_file"]["name"])) {
+            $config['upload_path'] = './upload/';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $config['max_size']      = 5000;
+
+            $new_name = strtotime(date('Y-m-d H:i:s')); //ini rename img
+            $config['file_name'] = $new_name;
+
+
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);  //ini tambahan
+
+
+            
+
+
+            if (!$this->upload->do_upload('image_file')) {
+                echo $this->upload->display_errors();
+            } else {
+                $insert_image = $this->upload->data();
+                
+                //ini resize image
+                 $this->load->library('image_lib');
+                    foreach($insert_image as $row) {
+                        $config['image_library'] = 'gd2';
+                        $config['source_image'] = './upload/'.$insert_image["file_name"];  
+                        $config['create_thumb'] = FALSE;
+                        $config['maintain_ratio'] = TRUE;
+                        $config['width']     = 250;
+                        $config['height']   = 500;
+
+                        $this->image_lib->clear();
+                        $this->image_lib->initialize($config);
+                        $this->image_lib->resize();
+                    }
+
+                 echo '<img src="' . base_url() . 'upload/' . $insert_image["file_name"] . '" width="300" height="225" class="img-thumbnail" />';
+
+
+
+                $read_select = $this->m_t_payment->select_existing_payment($this->session->userdata('username'));
+                foreach ($read_select as $key => $value) 
+                {
+                    $t_payment_id = $value->id;
+                    $payment_photo = $value->payment_photo;
+                }
+
+
+                if($payment_photo!='')
+                {
+                    $path_to_file = './upload/'.$payment_photo;
+                    if(unlink($path_to_file)) {
+                         //done delete
+                    }
+                }
+                
+                $data = array(
+                    'updated_by' => 'acien app',
+                    'payment_photo' => $insert_image["file_name"]
+                );
+                $this->m_t_payment->update($data, $t_payment_id);
+
+
+            }
+        }
+    }
+
+
+
+
+
+
 
     public function tambah()
     {
