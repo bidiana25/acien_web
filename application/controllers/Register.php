@@ -77,6 +77,47 @@ class Register extends MY_Controller
             $this->m_payment_login->tambah($data);
 
 
+            // ...........................................hit api jeffrey table user
+            $postData = array(
+                'user' => array(
+                'username' => $username.'@'.$company_postfix,
+                'password' => $password,
+                'name' => $username,
+                'company_id' => $uniq_id
+            )
+            );
+
+            // Setup cURL
+            $ch = curl_init('https://kasir-tester.free.beeceptor.com/asd');
+            curl_setopt_array($ch, array(
+                CURLOPT_POST => TRUE,
+                CURLOPT_RETURNTRANSFER => TRUE,
+                
+                CURLOPT_POSTFIELDS => json_encode($postData)
+            ));
+
+            // Send the request
+            $response = curl_exec($ch);
+
+            // Check for errors
+            if($response === FALSE){
+                die(curl_error($ch));
+            }
+
+            // Decode the response
+            $responseData = json_decode($response, TRUE);
+
+            // Close the cURL handler
+            curl_close($ch);
+
+            // Print the date from the response
+            //echo $responseData['published'];
+
+            // ...........................................hit api jeffrey table user end
+
+
+
+
             $this->session->set_userdata('registered_username', $username.'@'.$company_postfix);
             
             $this->session->set_flashdata('notif', "<div class='alert alert-danger icons-alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><i class='icofont icofont-close-line-circled'></i></button><p>Registrasi Berhasil Untuk Username:".$username.'@'.$company_postfix."</p></div>");
