@@ -10,25 +10,26 @@
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li class="active"><a href="#intro">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#team">Team</a></li>
-                
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="<?= base_url('c_dashboard/#about') ?>">About Us</a></li>
+                <li><a href="<?= base_url('c_dashboard/#services') ?>">Services</a></li>
+                <li><a href="<?= base_url('c_dashboard/#portfolio') ?>">Portfolio</a></li>
+                <li><a href="<?= base_url('c_dashboard/#team') ?>">Team</a></li>
+
+                <li><a href="<?= base_url('c_dashboard/#contact') ?>">Contact Us</a></li>
 
                 <?php if (is_login()) :  ?>
-                <li class="drop-down"><a><?=substr($this->session->userdata('username'), 0, 10)?></a>
-                    <ul>
-                        <li><a href="<?= base_url('status_kasir') ?>">Status Kasir</a></li>
-                        
-                        <li><a href="#">Setting</a></li>
+                    <li class="drop-down"><a><?= substr($this->session->userdata('username'), 0, 10) ?></a>
+                        <ul>
+                            <li><a href="<?= base_url('status_kasir') ?>">Status Kasir</a></li>
 
-                    </ul>
-                </li>
-                <li><a href="<?= base_url('/login/logout') ?>" class="button">Logout</a></li>
+                            <li><a href="#">Setting</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="<?= base_url('/login/logout') ?>" class="button">Logout</a></li>
                 <?php else : ?>
-                <li><a href="<?= base_url('login') ?>" class="button">Masuk</a></li>
+                    <li><a href="<?= base_url('login') ?>" class="button">Masuk</a></li>
+                    <li><a href="<?= base_url('/Register') ?>">Register</a></li>
                 <?php endif; ?>
             </ul>
         </nav><!-- .main-nav -->

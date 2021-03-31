@@ -14,7 +14,7 @@ if ($this->session->flashdata('message')) { // Jika ada
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/Login/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="<?php echo base_url() ?>assets/images/acien.png" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/Login/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
@@ -39,10 +39,16 @@ if ($this->session->flashdata('message')) { // Jika ada
                 <div class="login100-pic js-tilt" data-tilt>
                     <img src="<?php echo base_url() ?>assets/NewBiz/img/acien2.png" alt="IMG">
                 </div>
-
                 <form class="login100-form validate-form" method="post" action="<?php echo base_url('Login/login'); ?>">
+                    <div class="d-flex align-items-center">
+                        <a href="<?= base_url('C_dashboard'); ?>" class="d-flex align-items-center">
+                            <svg style="margin-bottom:25px; width: 25px;height:20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                            </svg><b style="margin-bottom:25px;" class="pl-2">Beranda</b>
+                        </a>
+                    </div>
                     <span class="login100-form-title">
-                        <?=$anjing?>
+                        <?= $anjing ?>
                     </span>
 
                     <div class="wrap-input100 validate-input" data-validate="Inputkan username yang benar">

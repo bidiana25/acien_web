@@ -7,6 +7,10 @@ class A_c_dashboard extends MY_Controller
   public function __construct()
   {
     parent::__construct();
+    if (!is_login()) {
+      $this->session->set_flashdata("danger", "Silahkan Login Terlebih Dahulu!");
+      redirect("/login");
+    }
     $this->load->model('m_t_payment');
     $this->load->model('m_companies');
     $this->load->model('m_payment_login');
@@ -48,35 +52,30 @@ class A_c_dashboard extends MY_Controller
   {
     $today = date('Y-m-d');
     $read_select = $this->m_t_payment->select_by_id($id);
-    foreach ($read_select as $key => $value) 
-    {
+    foreach ($read_select as $key => $value) {
       $username = $value->username;
       $total_day = $value->total_day;
     }
 
 
     $read_select = $this->m_payment_login->select_by_username($username);
-    foreach ($read_select as $key => $value) 
-    {
+    foreach ($read_select as $key => $value) {
       $company_id = $value->company_id;
     }
 
     $read_select = $this->m_companies->select_by_id($company_id);
-    foreach ($read_select as $key => $value) 
-    {
+    foreach ($read_select as $key => $value) {
       $expire_date = $value->expire_date;
     }
 
-    if($expire_date<$today)
-    {
-      $total_day_text ="+".$total_day." day";
-      $new_expire_date = date('Y-m-d',(strtotime ( $total_day_text , strtotime ( $today) ) ));
+    if ($expire_date < $today) {
+      $total_day_text = "+" . $total_day . " day";
+      $new_expire_date = date('Y-m-d', (strtotime($total_day_text, strtotime($today))));
     }
 
-    if($expire_date>=$today)
-    {
-      $total_day_text ="+".$total_day." day";
-      $new_expire_date = date('Y-m-d',(strtotime ( $total_day_text , strtotime ( $expire_date) ) ));
+    if ($expire_date >= $today) {
+      $total_day_text = "+" . $total_day . " day";
+      $new_expire_date = date('Y-m-d', (strtotime($total_day_text, strtotime($expire_date))));
     }
 
     $data = array(
@@ -95,8 +94,4 @@ class A_c_dashboard extends MY_Controller
 
     redirect('/a_c_dashboard');
   }
-
-
-
-
 }

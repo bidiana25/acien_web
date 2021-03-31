@@ -7,6 +7,10 @@ class A_m_c_bank extends MY_Controller
   public function __construct()
   {
     parent::__construct();
+    if (!is_login()) {
+      $this->session->set_flashdata("danger", "Silahkan Login Terlebih Dahulu!");
+      redirect("/login");
+    }
 
     $this->load->model('m_c_bank');
   }
@@ -27,8 +31,8 @@ class A_m_c_bank extends MY_Controller
   public function delete($id)
   {
     $data = array(
-        'updated_by' => $this->session->userdata('username'),
-        'mark_for_delete' => TRUE
+      'updated_by' => $this->session->userdata('username'),
+      'mark_for_delete' => TRUE
     );
     $this->m_c_bank->update($data, $id);
     $this->session->set_flashdata('notif', '<div class="alert alert-danger icons-alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line-circled"></i></button><p><strong>Success!</strong> Data Berhasil DIhapus!</p></div>');
@@ -38,11 +42,11 @@ class A_m_c_bank extends MY_Controller
   public function undo_delete($id)
   {
     $data = array(
-        'updated_by' => $this->session->userdata('username'),
-        'mark_for_delete' => FALSE
+      'updated_by' => $this->session->userdata('username'),
+      'mark_for_delete' => FALSE
     );
     $this->m_c_bank->update($data, $id);
-    
+
     $this->session->set_flashdata('notif', '<div class="alert alert-info icons-alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"> <i class="icofont icofont-close-line-circled"></i></button><p><strong>Data Berhasil Dikembalikan!</strong></p></div>');
     redirect('/c_t_m_d_level_user');
   }
@@ -50,7 +54,7 @@ class A_m_c_bank extends MY_Controller
 
   function tambah()
   {
-    
+
     $level_user = substr($this->input->post("level_user"), 0, 50);
 
     //Dikiri nama kolom pada database, dikanan hasil yang kita tangkap nama formnya.

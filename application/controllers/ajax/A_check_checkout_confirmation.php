@@ -15,8 +15,7 @@ class A_check_checkout_confirmation extends MY_Controller
     {
         $m_m_c_payment_method_id = ($this->input->post("id"));
         $read_select = $this->m_m_c_payment_method->select_by_id($m_m_c_payment_method_id);
-        foreach ($read_select as $key => $value) 
-        {
+        foreach ($read_select as $key => $value) {
             echo "<table>";
             echo "<tr>";
 
@@ -34,18 +33,17 @@ class A_check_checkout_confirmation extends MY_Controller
 
             echo "<tr>";
             echo "<th>";
+            echo "<hr />";
             echo 'Total Harga';
             echo "</th>";
 
             echo "<th>";
-            echo 'Rp'.number_format($value->value);
+            echo "<hr />";
+            echo 'Rp' . number_format($value->value);
             echo "</th>";
 
             echo "</tr>";
             echo "</table>";
-          
         }
     }
-
-    
 }

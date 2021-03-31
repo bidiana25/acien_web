@@ -7,6 +7,10 @@ class A_c_change_password extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		if (!is_login()) {
+			$this->session->set_flashdata("danger", "Silahkan Login Terlebih Dahulu!");
+			redirect("/login");
+		}
 
 		$this->load->model('m_payment_login');
 	}
