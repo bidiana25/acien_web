@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="intro-img">
-            <img src="<?php echo base_url() ?>assets/NewBiz/img/desainnn.png" alt="" class="img-fluid">
+            <img src="<?php echo base_url() ?>assets/NewBiz/img/" alt="" class="img-fluid">
         </div>
 
         <div class="intro-info">
