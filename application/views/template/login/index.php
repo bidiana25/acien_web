@@ -10,7 +10,7 @@ if ($this->session->flashdata('message')) { // Jika ada
 <html lang="en">
 
 <head>
-    <title>Login Acien Global Indonesia</title>
+    <title>Login Kasir Acien</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -41,10 +41,10 @@ if ($this->session->flashdata('message')) { // Jika ada
                 </div>
                 <form class="login100-form validate-form" method="post" action="<?php echo base_url('Login/login'); ?>">
                     <div class="d-flex align-items-center">
-                        <a href="<?= base_url('C_dashboard'); ?>" class="d-flex align-items-center">
-                            <svg style="margin-bottom:25px; width: 25px;height:20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <a href="<?= base_url('dashboard'); ?>" class="d-flex align-items-center">
+                            <svg style="margin-bottom:50; width: 25px;height:20px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
-                            </svg><b style="margin-bottom:25px;" class="pl-2">Beranda</b>
+                            </svg><b style="margin-bottom:50px;" class="pl-2">Beranda</b>
                         </a>
                     </div>
                     <span class="login100-form-title">

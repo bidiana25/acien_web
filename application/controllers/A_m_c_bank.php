@@ -72,10 +72,6 @@ class A_m_c_bank extends MY_Controller
   }
 
 
-
-
-
-
   public function edit_action()
   {
     $id = $this->input->post("id");

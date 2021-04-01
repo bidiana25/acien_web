@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class C_dashboard extends MY_Controller
+class Dashboard extends MY_Controller
 {
 
     public function __construct()
@@ -12,7 +12,7 @@ class C_dashboard extends MY_Controller
 
     public function index()
     {
-    	$this->session->set_userdata('registered_username', '');
+        $this->session->set_userdata('registered_username', '');
         $this->render_backend('template/user/index');
     }
 }

@@ -114,7 +114,12 @@ foreach ($select_existing_payment as $key => $value) {
 
                 <tr>
 
-                  <th><a id='status_pembayaran'><?= ($status_pembayaran) ?></a>
+                  <th>
+                    <div class="alert alert-danger mt-5">
+                      <a id='status_pembayaran'>
+                        <?= ($status_pembayaran) ?>
+                      </a>
+                    </div>
                   </th>
                 </tr>
 

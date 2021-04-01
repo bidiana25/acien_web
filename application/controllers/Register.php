@@ -16,7 +16,7 @@ class Register extends MY_Controller
     public function index()
     {
         if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
-            redirect('c_dashboard'); // Redirect ke page home
+            redirect('dashboard'); // Redirect ke page home
         // function render_login tersebut dari file core/MY_Controller.php
         $this->render_register('template/register/register'); // Load view login.php
     }
@@ -28,7 +28,7 @@ class Register extends MY_Controller
 
     public function tambah()
     {
-       
+
         $username = $this->input->post('username');
         $password = ($this->input->post('password'));
         $confirm_password = ($this->input->post('confirm_password'));
@@ -39,39 +39,38 @@ class Register extends MY_Controller
         $company_postfix = $this->input->post('company_postfix');
         $tanggal_gajian = 1;
 
-        if($password==$confirm_password)
-        {
+        if ($password == $confirm_password) {
             $send_password = md5($password);
             $uniq_id = intval(strtotime(date('Y-m-d H:i:s')));
             $data = array(
-                    'id' => $uniq_id,
-                    'created_by' => 'acien app',
-                    'created_date' => intval(strtotime(date('Y-m-d H:i:s'))),
-                    'updated_by' => '',
-                    'updated_date' => 0,
-                    'version' => 0,
-                    'address' => '',
-                    'company_postfix' => '@' . $company_postfix,
-                    'logo_path' => 0,
-                    'maximum_user' => 5,
-                    'name' => $company_postfix,
-                    'phone_number' => $phone_number,
-                    'pic' => $username,
-                    'suspend' => false,
-                    'expire_date' => date('Y-m-d'),
-                    'wage_cutoff_date' => $tanggal_gajian
+                'id' => $uniq_id,
+                'created_by' => 'acien app',
+                'created_date' => intval(strtotime(date('Y-m-d H:i:s'))),
+                'updated_by' => '',
+                'updated_date' => 0,
+                'version' => 0,
+                'address' => '',
+                'company_postfix' => '@' . $company_postfix,
+                'logo_path' => 0,
+                'maximum_user' => 5,
+                'name' => $company_postfix,
+                'phone_number' => $phone_number,
+                'pic' => $username,
+                'suspend' => false,
+                'expire_date' => date('Y-m-d'),
+                'wage_cutoff_date' => $tanggal_gajian
             );
             $this->m_companies->tambah($data);
 
 
             $data = array(
-                    'username' => $username.'@'.$company_postfix,
-                    'password' => $send_password,
-                    'company_id' => $uniq_id,
-                    'email' => $email,
-                    'phone' => $phone_number,
-                    'mark_for_delete' => false,
-                    'level_user_id' => 1
+                'username' => $username . '@' . $company_postfix,
+                'password' => $send_password,
+                'company_id' => $uniq_id,
+                'email' => $email,
+                'phone' => $phone_number,
+                'mark_for_delete' => false,
+                'level_user_id' => 1
             );
 
             $this->m_payment_login->tambah($data);
@@ -80,11 +79,11 @@ class Register extends MY_Controller
             // ...........................................hit api jeffrey table user
             $postData = array(
                 'user' => array(
-                'username' => $username.'@'.$company_postfix,
-                'password' => $password,
-                'name' => $username,
-                'company_id' => $uniq_id
-            )
+                    'username' => $username . '@' . $company_postfix,
+                    'password' => $password,
+                    'name' => $username,
+                    'company_id' => $uniq_id
+                )
             );
 
             // Setup cURL
@@ -92,7 +91,7 @@ class Register extends MY_Controller
             curl_setopt_array($ch, array(
                 CURLOPT_POST => TRUE,
                 CURLOPT_RETURNTRANSFER => TRUE,
-                
+
                 CURLOPT_POSTFIELDS => json_encode($postData)
             ));
 
@@ -100,7 +99,7 @@ class Register extends MY_Controller
             $response = curl_exec($ch);
 
             // Check for errors
-            if($response === FALSE){
+            if ($response === FALSE) {
                 die(curl_error($ch));
             }
 
@@ -118,20 +117,12 @@ class Register extends MY_Controller
 
 
 
-            $this->session->set_userdata('registered_username', $username.'@'.$company_postfix);
-            
-            $this->session->set_flashdata('notif', "<div class='alert alert-danger icons-alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><i class='icofont icofont-close-line-circled'></i></button><p>Registrasi Berhasil Untuk Username:".$username.'@'.$company_postfix."</p></div>");
+            $this->session->set_userdata('registered_username', $username . '@' . $company_postfix);
+
+            $this->session->set_flashdata('notif', "<div class='alert alert-danger icons-alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><i class='icofont icofont-close-line-circled'></i></button><p>Registrasi Berhasil Untuk Username:" . $username . '@' . $company_postfix . "</p></div>");
             redirect('Login');
-        }
-        else
-        {
+        } else {
             redirect('register/register');
         }
-        
-        
-        
-
-
-       
     }
 }

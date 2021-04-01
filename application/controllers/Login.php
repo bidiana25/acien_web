@@ -14,14 +14,14 @@ class Login extends MY_Controller
     public function index()
     {
         if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
-            redirect('c_dashboard'); // Redirect ke page home
+            redirect('dashboard'); // Redirect ke page home
 
 
         $data = [
-          "anjing" => 'Login'
+            "anjing" => 'Login'
         ];
         // function render_login tersebut dari file core/MY_Controller.php
-        $this->render_login('template/login/index',$data); // Load view login.php
+        $this->render_login('template/login/index', $data); // Load view login.php
     }
 
     public function login()
@@ -37,8 +37,7 @@ class Login extends MY_Controller
         } else {
             if ($password == $user->password) { // Jika password yang diinput sama dengan password yang didatabase
 
-                if($user->level_user_id==1)
-                {
+                if ($user->level_user_id == 1) {
                     $session = array(
                         'authenticated' => true, // Buat session authenticated dengan value true
                         'username' => $user->username,  // Buat session username
@@ -55,11 +54,10 @@ class Login extends MY_Controller
                 }
 
 
-                if($user->level_user_id==0)
-                {
+                if ($user->level_user_id == 0) {
                     $session = array(
                         'authenticated' => true, // Buat session authenticated dengan value true
-                        'password' => $user->password, 
+                        'password' => $user->password,
                         'username' => $user->username,
                         'date_dashboard' => date('Y-m-d')
                     );
@@ -67,7 +65,6 @@ class Login extends MY_Controller
                     $this->session->set_userdata($session); // Buat session sesuai $session
                     redirect('a_c_dashboard'); // Redirect ke halaman home
                 }
-                
             } else {
                 $this->session->set_flashdata('message', 'Password salah'); // Buat session flashdata
                 redirect('Login'); // Redirect ke halaman login
