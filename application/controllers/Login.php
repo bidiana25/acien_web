@@ -75,7 +75,7 @@ class Login extends MY_Controller
     public function logout()
     {
         $this->session->sess_destroy(); // Hapus semua session
-        redirect('Login'); // Redirect ke halaman login
+        redirect('login'); // Redirect ke halaman login
     }
 
 
@@ -87,7 +87,7 @@ class Login extends MY_Controller
 
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('notif', '<div class="alert alert-danger icons-alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line-circled"></i></button><p>Password Baru dan Konfirmasi Password harus sama!</p></div>');
-            redirect('Login/profile');
+            redirect('login/profile');
         } else {
             $cek_old = $this->UserModel->cek_old();
             if ($cek_old == False) {
@@ -98,7 +98,7 @@ class Login extends MY_Controller
                 $this->UserModel->save($data, $id);
                 $this->session->sess_destroy();
                 $this->session->set_flashdata('message', 'Password berhasil diubah, silahkan login kembali!');
-                redirect('Login');
+                redirect('login');
             } //end if valid_user
         }
     }

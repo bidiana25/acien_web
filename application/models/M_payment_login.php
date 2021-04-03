@@ -21,6 +21,21 @@ class M_payment_login extends CI_Model
     }
 
     
+    public function select_count_id()
+    {
+        $this->db->select('count(username) as total_id'); 
+        $this->db->from('payment_login');
+        $akun = $this->db->get();
+        return $akun->result();
+    }
+
+    public function select_count_users_id()
+    {
+        $this->db->select('count(username) as total_id'); 
+        $this->db->from('users');
+        $akun = $this->db->get();
+        return $akun->result();
+    }
 
 
     public function select_for_client()

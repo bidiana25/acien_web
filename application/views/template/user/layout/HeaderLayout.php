@@ -11,11 +11,9 @@
             <ul>
                 <li class="active"><a href="<?= base_url('dashboard/#intro') ?>">Home</a></li>
                 <li><a href="<?= base_url('dashboard/#about') ?>">About Us</a></li>
-                <li><a href="<?= base_url('dashboard/#services') ?>">Services</a></li>
-                <li><a href="<?= base_url('dashboard/#portfolio') ?>">Portfolio</a></li>
-                <li><a href="<?= base_url('dashboard/#team') ?>">Team</a></li>
+                <li><a href="<?= base_url('dashboard/#services') ?>">Katalog</a></li>
+                <li><a href="<?= base_url('dashboard/#team') ?>">Contact Us</a></li>
 
-                <li><a href="<?= base_url('dashboard/#contact') ?>">Contact Us</a></li>
 
                 <?php if (is_login()) :  ?>
                     <li class="drop-down"><a><?= substr($this->session->userdata('username'), 0, 10) ?></a>
@@ -26,10 +24,10 @@
 
                         </ul>
                     </li>
-                    <li><a href="<?= base_url('/login/logout') ?>" class="button">Logout</a></li>
+                    <li><a href="<?= base_url('/login/logout') ?>" >Logout</a></li>
                 <?php else : ?>
-                    <li><a href="<?= base_url('login') ?>" class="button">Masuk</a></li>
-                    <li><a href="<?= base_url('/Register') ?>">Register</a></li>
+                    <li><a href="<?= base_url('login') ?>" >Login</a></li>
+                    <li><a href="<?= base_url('/register') ?>" >Coba Gratis</a></li>
                 <?php endif; ?>
             </ul>
         </nav><!-- .main-nav -->

@@ -9,19 +9,20 @@ foreach ($company_status as $key => $value) {
 foreach ($select_existing_payment as $key => $value) {
   $date = $value->date;
   $time = $value->time;
+  $username = $value->username;
   $total_day = $value->total_day;
   $payment_value = $value->payment_value;
   $payment_photo = $value->payment_photo;
   $aproval = $value->aproval;
   if ($aproval == 'f') {
-    $aproval = 'Belum Diterima';
+    $aproval_text = 'Belum Diterima';
   }
 
   if ($aproval == 't') {
-    $aproval = "Pembayaran Diterima <br> silahkan login ke <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a>";
+    $aproval_text = "Pembayaran Diterima </a>";
   }
 
-
+  $status_pembayaran ='';
   $status_pembayaran = '<br> Menunggu Bukti Pembayaran';
   if ($payment_photo != '') {
     $status_pembayaran = $paid;
@@ -80,6 +81,13 @@ foreach ($select_existing_payment as $key => $value) {
             </p>
           </div>
 
+          <div class="alert alert-danger mt-5">
+              <a id='status_pembayaran'>
+                  <?= ($status_pembayaran) ?>
+              </a>
+          </div>
+
+
           <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
             <div class="icon"><i class="fa fa-shopping-bag"></i></div>
             <h4 class="title"><a href="">Menunggu Pembayaran</a></h4>
@@ -90,9 +98,15 @@ foreach ($select_existing_payment as $key => $value) {
                   <th>Tanggal Pembelian</th>
                   <th><a>: <?= date('d-M-Y', strtotime($date)) . ' / ' . date('H:i', strtotime($time)) ?></a>
                   </th>
-
-
                 </tr>
+
+
+                <tr>
+                  <th>Username</th>
+                  <th><a>: <?= $username  ?></a>
+                  </th>
+                </tr>
+
                 <tr>
                   <th>Durasi Paket</th>
                   <th><a>: <?= $total_day . ' Hari' ?></a>
@@ -107,21 +121,12 @@ foreach ($select_existing_payment as $key => $value) {
 
                 <tr>
                   <th>Status Pembayaran</th>
-                  <th><a>: <?= ($aproval) ?></a>
+                  <th><a>: <?= ($aproval_text) ?></a>
                   </th>
                 </tr>
 
 
-                <tr>
-
-                  <th>
-                    <div class="alert alert-danger mt-5">
-                      <a id='status_pembayaran'>
-                        <?= ($status_pembayaran) ?>
-                      </a>
-                    </div>
-                  </th>
-                </tr>
+                
 
 
               </table>
@@ -299,9 +304,10 @@ foreach ($select_existing_payment as $key => $value) {
 
 
         <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-          <img src="<?php echo base_url() ?>assets/NewBiz/img/about-img.svg" class="img-fluid" alt="">
+          <img src="<?php echo base_url() ?>assets/NewBiz/img/promo_gratis_receipt.jpg" class="img-fluid" alt="">
         </div>
       </div>
+      <br><br>
 
 
 
@@ -358,8 +364,13 @@ foreach ($select_existing_payment as $key => $value) {
     font-weight: bold;
   }
 
+  .img-fluid
+  {
+    height: 600px;
+  }
+
 
   table tr th {
-    min-width: 130px;
+    min-width: 150px;
   }
 </style>

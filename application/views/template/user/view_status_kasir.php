@@ -2,6 +2,10 @@
 foreach ($company_status as $key => $value) {
   $expire_date = $value->expire_date;
 }
+
+
+
+
 ?>
 
 
@@ -56,6 +60,12 @@ foreach ($company_status as $key => $value) {
 
             <form action="<?php echo base_url('status_kasir/tambah') ?>" method="post">
               <table>
+                <tr>
+                  <th>Username</th>
+                  <th><a>: <?= $this->session->userdata('username')  ?></a>
+                  </th>
+                </tr>
+
                 <tr>
                   <th>Pilihan Paket </th>
                   <th>:
@@ -121,9 +131,10 @@ foreach ($company_status as $key => $value) {
 
 
         <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
-          <img src="<?php echo base_url() ?>assets/NewBiz/img/about-img.svg" class="img-fluid" alt="">
+          <img src="<?php echo base_url() ?>assets/NewBiz/img/promo_gratis_receipt.jpg" class="img-fluid" alt="">
         </div>
       </div>
+      <br><br>
 
 
 
@@ -221,6 +232,11 @@ foreach ($company_status as $key => $value) {
   .expire_date_warning {
     color: red;
     font-weight: bold;
+  }
+
+  .img-fluid
+  {
+    height: 600px;
   }
 
 

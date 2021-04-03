@@ -4,48 +4,43 @@
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 footer-info">
-                    <h3>NewBiz</h3>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                    <h1>Privasi usaha kamu adalah prioritas kami</h1>
+                    <p></p>
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>Tentang Kami</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
                         <li><a href="#">Privacy policy</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h4>Contact Us</h4>
+                    <h4>Hubungi Kami</h4>
                     <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        JL. DR. SETIA BUDHI NO.88 <br>
+                        Pekanbaru, Riau<br>
+                        Indonesia <br>
+                        <strong>Phone:</strong> <a href='https://api.whatsapp.com/send?phone=6282284438008&text=Send20%a20%quote' target='_blank'>+6282284438008</a><br>
+                        <strong>Email:</strong> <a href='mailto: acien.id@gmail.com' target='_blank'>acien.id@gmail.com</a><br> 
                     </p>
 
                     <div class="social-links">
-                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://instagram.com/acien.id?igshid=1ma9a2si70a5g" target='_blank' class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="https://instagram.com/acien.id?igshid=1ma9a2si70a5g" target='_blank' class="instagram"><i class="fa fa-instagram"></i></a>
                     </div>
 
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+                    <h4><a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a></h4>
+                    <p>Kami terus berkomitmen untuk membantu mengembangkan usaha kamu.</p>
                     <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form>
                 </div>
+
+                
 
             </div>
         </div>
@@ -53,7 +48,7 @@
 
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong>NewBiz</strong>. All Rights Reserved
+            &copy; Copyright <strong>Acien Global Indonesia</strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!--
@@ -62,7 +57,7 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
         -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            Apps <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a>
         </div>
     </div>
 </footer>
