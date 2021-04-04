@@ -102,7 +102,10 @@ class Register extends MY_Controller
             curl_setopt_array($ch, array(
                 CURLOPT_POST => TRUE,
                 CURLOPT_RETURNTRANSFER => TRUE,
-
+                CURLOPT_HTTPHEADER => array(
+                                            'Content-Type: application/json',
+                                            'Connection: Keep-Alive'
+                                            ),
                 CURLOPT_POSTFIELDS => json_encode($postData)
             ));
 
