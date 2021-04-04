@@ -46,7 +46,7 @@
                     <a class="warning3_label_company_postfix" id='warning3_label_company_postfix'>(Tidak Boleh Ada Special Character)</a>
                     <a class="warning4_label_company_postfix" id='warning4_label_company_postfix'>(Tidak Boleh Kosong)</a>
 
-                    <input type="text" name="company_postfix"  minlength="8" maxlength="40" placeholder="Tanpa Spasi" id="company_postfix" class="input-text">
+                    <input type="text" name="company_postfix"  minlength="1" maxlength="40" placeholder="Tanpa Spasi" id="company_postfix" class="input-text">
 
                 </div>
 
@@ -96,7 +96,7 @@
                     <a class="warning3_label_username" id='warning3_label_username'>(Tidak Boleh Ada Special Character)</a>
                     <a class="warning4_label_username" id='warning4_label_username'>(Tidak Boleh Kosong)</a>
 
-                    <input type="text" name="username" id="username"  minlength="8" maxlength="40" placeholder="Tanpa Spasi" class="input-text">
+                    <input type="text" name="username" id="username"  minlength="1" maxlength="40" placeholder="Tanpa Spasi" class="input-text">
                 </div>
                 <div class="form-row">
                     <label for="Email">Alamat Email</label>
