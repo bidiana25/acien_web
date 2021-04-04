@@ -9,8 +9,8 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url() ?>assets/images/acien.png" rel="icon">
-  <link href="<?php echo base_url() ?>assets/images/acien.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url() ?>assets/images/logo_acien_full_square.jpg" rel="icon">
+  <link href="<?php echo base_url() ?>assets/images/logo_acien_full_square.jpg" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
