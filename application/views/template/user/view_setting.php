@@ -64,7 +64,7 @@ foreach ($payment_login_status as $key => $value) {
           </div>
 
           <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-            
+
             <h4 class="title">Data Pelanggan</h4>
 
             <form action="<?php echo base_url('setting/save_button_1') ?>" method="post">
@@ -77,7 +77,7 @@ foreach ($payment_login_status as $key => $value) {
 
                 <tr>
                   <th>Email</th>
-                  <th>:<input type="text" name="email" placeholder="Email" id="email" minlength="5" maxlength="100" class="input-text" value="<?=$email?>">
+                  <th>:<input type="text" name="email" placeholder="Email" id="email" minlength="5" maxlength="100" class="input-text" value="<?= $email ?>">
                   </th>
                   <th>
                     <a class="warning2_label_email" id='warning2_label_email'>(Email Tidak Valid)</a>
@@ -90,7 +90,7 @@ foreach ($payment_login_status as $key => $value) {
 
                 <tr>
                   <th>No Telepon</th>
-                  <th>:<input type="text" name="phone" placeholder="Nomor Telepon" minlength="5" maxlength="15" id="phone" class="input-text"  value="<?=$phone?>">
+                  <th>:<input type="text" name="phone" placeholder="Nomor Telepon" minlength="5" maxlength="15" id="phone" class="input-text" value="<?= $phone ?>">
                   </th>
                   <th>
                     <a class="warning2_label_phone" id='warning2_label_phone'>(No Telepon Tidak Valid)</a>
@@ -99,14 +99,14 @@ foreach ($payment_login_status as $key => $value) {
                   </th>
                 </tr>
 
-                
+
 
 
               </table>
 
               <br />
 
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" id='save_button_1' data-target="#myModal" >Save</button>
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" id='save_button_1' data-target="#myModal">Save</button>
 
 
 
@@ -123,23 +123,23 @@ foreach ($payment_login_status as $key => $value) {
                     </div>
                     <div class="modal-body">
                       <table>
-                                    
 
-                                    <tr>
-                                        <th><label>Alamat Email</label></th>
 
-                                        <th><a class="modal_text_right" id="modal_email"></a></th>
+                        <tr>
+                          <th><label>Alamat Email</label></th>
 
-                                        
-                                    </tr>
+                          <th><a class="modal_text_right" id="modal_email"></a></th>
 
-                                    <tr>
-                                        <th><label>Nomor Telepon</label></th>
 
-                                        <th><a class="modal_text_right" id="modal_phone"></a></th>
-                                       
-                                    </tr>
-                                </table>
+                        </tr>
+
+                        <tr>
+                          <th><label>Nomor Telepon</label></th>
+
+                          <th><a class="modal_text_right" id="modal_phone"></a></th>
+
+                        </tr>
+                      </table>
                     </div>
 
                     <div class="modal-footer">
@@ -167,12 +167,12 @@ foreach ($payment_login_status as $key => $value) {
 
 
           <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-            
+
             <h4 class="title">Password Baru</h4>
 
             <form action="<?php echo base_url('setting/change_password') ?>" method="post">
               <table>
-                
+
 
                 <tr>
                   <th>Password Baru</th>
@@ -180,9 +180,9 @@ foreach ($payment_login_status as $key => $value) {
                   </th>
 
                   <th>
-                    <a class="warning2_label_password" id='warning2_label_password'>(Minimal 8 Character)</a>
-                    <a class="warning3_label_password" id='warning3_label_password'>(Tidak Boleh Ada Special Character)</a>
-                    <a class="warning4_label_password" id='warning4_label_password'>(Tidak Boleh Kosong)</a>
+                    <a style="color: red;" class="warning2_label_password" id='warning2_label_password'>(Minimal 8 Character)</a>
+                    <a style="color: red;" class="warning3_label_password" id='warning3_label_password'>(Tidak Boleh Ada Special Character)</a>
+                    <a style="color: red;" class="warning4_label_password" id='warning4_label_password'>(Tidak Boleh Kosong)</a>
                   </th>
                 </tr>
 
@@ -193,19 +193,19 @@ foreach ($payment_login_status as $key => $value) {
                   </th>
 
                   <th>
-                    <a class="warning2_label_confirm_password" id='warning2_label_confirm_password'>(Password Tidak Sama)</a>
-                        <a class="warning4_label_confirm_password" id='warning4_label_confirm_password'>(Tidak Boleh Kosong)</a>
+                    <a style="color: red;" class="warning2_label_confirm_password" id='warning2_label_confirm_password'>(Password Tidak Sama)</a>
+                    <a style="color: red;" class="warning4_label_confirm_password" id='warning4_label_confirm_password'>(Tidak Boleh Kosong)</a>
                   </th>
                 </tr>
 
-                
+
 
 
               </table>
 
               <br />
 
-              <button type="button" class="btn btn-info btn-lg button_change_password" data-toggle="modal" id='change_password' data-target="#myModal2">Change Password</button>
+              <button type="button" class="btn btn-danger btn-lg button_change_password" data-toggle="modal" id='change_password' data-target="#myModal2">Change Password</button>
 
 
 
@@ -222,20 +222,20 @@ foreach ($payment_login_status as $key => $value) {
                     </div>
                     <div class="modal-body">
                       <table>
-                                    
 
-                                    <tr>
-                                        <th><label>Password Lama</label></th>
 
-                                        <th><input type="password" name="old_password" placeholder="Konfirmasi" id="old_password" class="input-text"></th>
-                                    </tr>
+                        <tr>
+                          <th><label>Password Lama</label></th>
 
-                      
-                                </table>
+                          <th><input type="password" name="old_password" placeholder="Konfirmasi" id="old_password" class="input-text"></th>
+                        </tr>
+
+
+                      </table>
                     </div>
 
                     <div class="modal-footer">
-                      <input type="submit" name="save" class="btn btn-info btn-lg" value="Change Password">
+                      <input type="submit" name="save" class="btn btn-danger btn-lg" value="Change Password">
 
                     </div>
                   </div>
@@ -288,182 +288,180 @@ foreach ($payment_login_status as $key => $value) {
 
 
     $('#email').change(function() {
-                var email = $('#email').val();
-                var post_id = 'id=' + email;
-                if (email != '') {
+      var email = $('#email').val();
+      var post_id = 'id=' + email;
+      if (email != '') {
 
 
-                    var specialChars = "<>!#$%^&*()[]{}?:;|'\"\\,/~`= ";
-                    var checkForSpecialChar = function(string) {
-                        for (i = 0; i < specialChars.length; i++) {
-                            if (string.indexOf(specialChars[i]) > -1) {
-                                return true
-                            }
-                        }
-                        return false;
-                    }
+        var specialChars = "<>!#$%^&*()[]{}?:;|'\"\\,/~`= ";
+        var checkForSpecialChar = function(string) {
+          for (i = 0; i < specialChars.length; i++) {
+            if (string.indexOf(specialChars[i]) > -1) {
+              return true
+            }
+          }
+          return false;
+        }
 
 
-                    if (email.indexOf("@") < 0) {
-                        true_logic_email = 0;
-                        console.log("contains spaces");
-                        document.getElementById('warning2_label_email').style.display = 'block';
-                        document.getElementById('warning3_label_email').style.display = 'none';
-                        document.getElementById('warning4_label_email').style.display = 'none';
+        if (email.indexOf("@") < 0) {
+          true_logic_email = 0;
+          console.log("contains spaces");
+          document.getElementById('warning2_label_email').style.display = 'block';
+          document.getElementById('warning3_label_email').style.display = 'none';
+          document.getElementById('warning4_label_email').style.display = 'none';
 
-                        document.getElementById('save_button_1').disabled = true;
-                    } else if (checkForSpecialChar(email)) {
-                        true_logic_email = 0;
-                        console.log("contains sc");
+          document.getElementById('save_button_1').disabled = true;
+        } else if (checkForSpecialChar(email)) {
+          true_logic_email = 0;
+          console.log("contains sc");
 
-                        document.getElementById('warning2_label_email').style.display = 'none';
-                        document.getElementById('warning3_label_email').style.display = 'block';
-                        document.getElementById('warning4_label_email').style.display = 'none';
+          document.getElementById('warning2_label_email').style.display = 'none';
+          document.getElementById('warning3_label_email').style.display = 'block';
+          document.getElementById('warning4_label_email').style.display = 'none';
 
-                        document.getElementById('save_button_1').disabled = true;
-                    } else {
-                        true_logic_email = 1;
-                        document.getElementById('warning2_label_email').style.display = 'none';
-                        document.getElementById('warning3_label_email').style.display = 'none';
-                        document.getElementById('warning4_label_email').style.display = 'none';
-                        document.getElementById('save_button_1').disabled = false;
-                    }
+          document.getElementById('save_button_1').disabled = true;
+        } else {
+          true_logic_email = 1;
+          document.getElementById('warning2_label_email').style.display = 'none';
+          document.getElementById('warning3_label_email').style.display = 'none';
+          document.getElementById('warning4_label_email').style.display = 'none';
+          document.getElementById('save_button_1').disabled = false;
+        }
 
-                }
-
-
-
-
-
-            });
+      }
 
 
 
 
 
-
-
-
-            $('#phone').change(function() {
-                var phone = $('#phone').val();
-                var post_id = 'id=' + phone;
-                if (phone != '') {
-
-
-                    var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=qwertyuiopasdfghjklzxcvbnm";
-                    var checkForSpecialChar = function(string) {
-                        for (i = 0; i < specialChars.length; i++) {
-                            if (string.indexOf(specialChars[i]) > -1) {
-                                return true
-                            }
-                        }
-                        return false;
-                    }
-
-
-                    if (phone.indexOf(" ") >= 0) {
-                        true_logic_phone = 0;
-                        console.log("contains spaces");
-                        document.getElementById('warning2_label_phone').style.display = 'block';
-                        document.getElementById('warning3_label_phone').style.display = 'none';
-                        document.getElementById('warning4_label_phone').style.display = 'none';
-
-                        document.getElementById('save_button_1').disabled = true;
-                    } else if (checkForSpecialChar(phone)) {
-                        true_logic_phone = 0;
-                        console.log("contains sc");
-
-                        document.getElementById('warning2_label_phone').style.display = 'none';
-                        document.getElementById('warning3_label_phone').style.display = 'block';
-                        document.getElementById('warning4_label_phone').style.display = 'none';
-
-                        document.getElementById('save_button_1').disabled = true;
-                    } else {
-                        true_logic_phone = 1;
-                        document.getElementById('warning2_label_phone').style.display = 'none';
-                        document.getElementById('warning3_label_phone').style.display = 'none';
-                        document.getElementById('warning4_label_phone').style.display = 'none';
-
-                        document.getElementById('save_button_1').disabled = false;
-                    }
-
-                }
+    });
 
 
 
 
 
-            });
+
+
+
+    $('#phone').change(function() {
+      var phone = $('#phone').val();
+      var post_id = 'id=' + phone;
+      if (phone != '') {
+
+
+        var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=qwertyuiopasdfghjklzxcvbnm";
+        var checkForSpecialChar = function(string) {
+          for (i = 0; i < specialChars.length; i++) {
+            if (string.indexOf(specialChars[i]) > -1) {
+              return true
+            }
+          }
+          return false;
+        }
+
+
+        if (phone.indexOf(" ") >= 0) {
+          true_logic_phone = 0;
+          console.log("contains spaces");
+          document.getElementById('warning2_label_phone').style.display = 'block';
+          document.getElementById('warning3_label_phone').style.display = 'none';
+          document.getElementById('warning4_label_phone').style.display = 'none';
+
+          document.getElementById('save_button_1').disabled = true;
+        } else if (checkForSpecialChar(phone)) {
+          true_logic_phone = 0;
+          console.log("contains sc");
+
+          document.getElementById('warning2_label_phone').style.display = 'none';
+          document.getElementById('warning3_label_phone').style.display = 'block';
+          document.getElementById('warning4_label_phone').style.display = 'none';
+
+          document.getElementById('save_button_1').disabled = true;
+        } else {
+          true_logic_phone = 1;
+          document.getElementById('warning2_label_phone').style.display = 'none';
+          document.getElementById('warning3_label_phone').style.display = 'none';
+          document.getElementById('warning4_label_phone').style.display = 'none';
+
+          document.getElementById('save_button_1').disabled = false;
+        }
+
+      }
+
+
+
+
+
+    });
 
 
     $('#password').change(function() {
 
 
-                var password = $('#password').val();
-                var post_id = 'id=' + password;
+      var password = $('#password').val();
+      var post_id = 'id=' + password;
 
-                var confirm_password = $('#confirm_password').val();
+      var confirm_password = $('#confirm_password').val();
 
-                if (password != '') {
-
-
-                    var specialChars = "<>!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
-                    var checkForSpecialChar = function(string) {
-                        for (i = 0; i < specialChars.length; i++) {
-                            if (string.indexOf(specialChars[i]) > -1) {
-                                return true
-                            }
-                        }
-                        return false;
-                    }
-
-                    
+      if (password != '') {
 
 
-                    if (password.length < 8) {
-                        true_logic_password = 0;
-                        console.log("contains spaces");
-                        document.getElementById('warning2_label_password').style.display = 'block';
-                        document.getElementById('warning3_label_password').style.display = 'none';
-                        document.getElementById('warning4_label_password').style.display = 'none';
-
-                        document.getElementById('change_password').disabled = true;
-                    } else if (checkForSpecialChar(password)) {
-                        true_logic_password = 0;
-                        console.log("contains sc");
-
-                        document.getElementById('warning2_label_password').style.display = 'none';
-                        document.getElementById('warning3_label_password').style.display = 'block';
-                        document.getElementById('warning4_label_password').style.display = 'none';
-
-                        document.getElementById('change_password').disabled = true;
-
-                    }else if (confirm_password.length>=8 && confirm_password != password) {
-                        true_logic_confirm_password = 0;
-                        console.log("pass not match");
-                        document.getElementById('warning2_label_confirm_password').style.display = 'block';
-                        document.getElementById('warning4_label_confirm_password').style.display = 'none';
-
-                        document.getElementById('change_password').disabled = true;
-
-                    }
-                     else {
-                        true_logic_password = 1;
-                        document.getElementById('warning2_label_password').style.display = 'none';
-                        document.getElementById('warning3_label_password').style.display = 'none';
-                        document.getElementById('warning4_label_password').style.display = 'none';
-
-                        document.getElementById('change_password').disabled = false;
-                    }
-
-                }
+        var specialChars = "<>!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
+        var checkForSpecialChar = function(string) {
+          for (i = 0; i < specialChars.length; i++) {
+            if (string.indexOf(specialChars[i]) > -1) {
+              return true
+            }
+          }
+          return false;
+        }
 
 
 
 
+        if (password.length < 8) {
+          true_logic_password = 0;
+          console.log("contains spaces");
+          document.getElementById('warning2_label_password').style.display = 'block';
+          document.getElementById('warning3_label_password').style.display = 'none';
+          document.getElementById('warning4_label_password').style.display = 'none';
 
-            });
+          document.getElementById('change_password').disabled = true;
+        } else if (checkForSpecialChar(password)) {
+          true_logic_password = 0;
+          console.log("contains sc");
 
+          document.getElementById('warning2_label_password').style.display = 'none';
+          document.getElementById('warning3_label_password').style.display = 'block';
+          document.getElementById('warning4_label_password').style.display = 'none';
+
+          document.getElementById('change_password').disabled = true;
+
+        } else if (confirm_password.length >= 8 && confirm_password != password) {
+          true_logic_confirm_password = 0;
+          console.log("pass not match");
+          document.getElementById('warning2_label_confirm_password').style.display = 'block';
+          document.getElementById('warning4_label_confirm_password').style.display = 'none';
+
+          document.getElementById('change_password').disabled = true;
+
+        } else {
+          true_logic_password = 1;
+          document.getElementById('warning2_label_password').style.display = 'none';
+          document.getElementById('warning3_label_password').style.display = 'none';
+          document.getElementById('warning4_label_password').style.display = 'none';
+
+          document.getElementById('change_password').disabled = false;
+        }
+
+      }
+
+
+
+
+
+    });
 
 
 
@@ -474,58 +472,46 @@ foreach ($payment_login_status as $key => $value) {
 
 
 
-            $('#confirm_password').change(function() {
-                var confirm_password = $('#confirm_password').val();
-                var password = $('#password').val();
+
+    $('#confirm_password').change(function() {
+      var confirm_password = $('#confirm_password').val();
+      var password = $('#password').val();
 
 
-                console.log(confirm_password);
-                if (confirm_password != '') {
-
-
-
-
-                    if (confirm_password != password) {
-                        true_logic_confirm_password = 0;
-                        console.log("pass not match");
-                        document.getElementById('warning2_label_confirm_password').style.display = 'block';
-                        document.getElementById('warning4_label_confirm_password').style.display = 'none';
-
-                        document.getElementById('change_password').disabled = true;
-
-                    } else {
-                        true_logic_confirm_password = 1;
-                        document.getElementById('warning2_label_confirm_password').style.display = 'none';
-                        document.getElementById('warning4_label_confirm_password').style.display = 'none';
-                        document.getElementById('change_password').style.display = 'block';
-                        document.getElementById('change_password').disabled = false;
-                    }
-
-                }
+      console.log(confirm_password);
+      if (confirm_password != '') {
 
 
 
 
+        if (confirm_password != password) {
+          true_logic_confirm_password = 0;
+          console.log("pass not match");
+          document.getElementById('warning2_label_confirm_password').style.display = 'block';
+          document.getElementById('warning4_label_confirm_password').style.display = 'none';
 
-            });
+          document.getElementById('change_password').disabled = true;
+
+        } else {
+          true_logic_confirm_password = 1;
+          document.getElementById('warning2_label_confirm_password').style.display = 'none';
+          document.getElementById('warning4_label_confirm_password').style.display = 'none';
+          document.getElementById('change_password').style.display = 'block';
+          document.getElementById('change_password').disabled = false;
+        }
+
+      }
+
+
+
+
+
+    });
 
 
 
 
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 
@@ -540,8 +526,7 @@ foreach ($payment_login_status as $key => $value) {
     font-weight: bold;
   }
 
-  .img-fluid
-  {
+  .img-fluid {
     height: 600px;
   }
 
@@ -551,13 +536,9 @@ foreach ($payment_login_status as $key => $value) {
   }
 
 
-  input[type='text']
-  {
+  input[type='text'] {
     min-width: 200px;
   }
-
-
-
 </style>
 
 
@@ -647,132 +628,124 @@ foreach ($payment_login_status as $key => $value) {
 
 
 
-h4
-{
-  color: blue;
-}
+  h4 {
+    color: blue;
+  }
 </style>
 
 
 
 
 <script type="text/javascript">
-  
-
   mycode();
 
-        function mycode() {
-
-            
-            var email = document.getElementById("email").value;
-            var phone = document.getElementById("phone").value;
-            
-
-            console.log(email);
-            document.getElementById("modal_phone").text = phone;
-            document.getElementById("modal_email").text = email;
+  function mycode() {
 
 
-            tid = setTimeout(mycode, 500); // repeat myself
-        }
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
 
+
+    console.log(email);
+    document.getElementById("modal_phone").text = phone;
+    document.getElementById("modal_email").text = email;
+
+
+    tid = setTimeout(mycode, 500); // repeat myself
+  }
 </script>
 
 
 
 
 <style type="text/css">
-  
+  .warning2_label_email {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
-    .warning2_label_email {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-    .warning3_label_email {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning3_label_email {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
 
 
-    .warning4_label_email {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning4_label_email {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
 
-    .warning2_label_phone {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning2_label_phone {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
-    .warning3_label_phone {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning3_label_phone {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
 
 
 
-    .warning4_label_phone {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning4_label_phone {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
-    .warning2_label_password {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning2_label_password {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
-    .warning3_label_password {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
-
-
-
-    .warning4_label_password {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning3_label_password {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
 
-    .warning2_label_confirm_password {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
 
-    .warning4_label_confirm_password {
-        display: none;
-        color: red;
-        font-size: 12px;
-        font-weight: bold;
-    }
+  .warning4_label_password {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
 
-    .button_change_password
-    {
-      display: none;
-    }
 
+  .warning2_label_confirm_password {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .warning4_label_confirm_password {
+    display: none;
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .button_change_password {
+    display: none;
+  }
 </style>
