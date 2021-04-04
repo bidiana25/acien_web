@@ -4,14 +4,18 @@
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 footer-info">
-                    <h1>Privasi usaha kamu adalah prioritas kami</h1>
+                    <h1>Hubungi kami untuk aplikasi lainnya.</h1>
                     <p></p>
                 </div>
 
                 <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Tentang Kami</h4>
+                    <h4>Produk Software</h4>
                     <ul>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Website Usaha</a></li>
+                        <li><a href="#">App Inventory</a></li>
+                        <li><a href="#">App Payroll</a></li>
+                        <li><a href="#">App Keuangan</a></li>
+                        <li><a href="#">Factory Visualization</a></li>
                     </ul>
                 </div>
 
@@ -32,13 +36,7 @@
 
                 </div>
 
-                <div class="col-lg-3 col-md-6 footer-newsletter">
-                    <h4><a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a></h4>
-                    <p>Kami terus berkomitmen untuk membantu mengembangkan usaha kamu.</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
-                </div>
+                
 
                 
 
@@ -57,7 +55,7 @@
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
         -->
-            Apps <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a>
+            App <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a>
         </div>
     </div>
 </footer>
