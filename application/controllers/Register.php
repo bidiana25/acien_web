@@ -98,7 +98,7 @@ class Register extends MY_Controller
             );
 
             // Setup cURL
-            $ch = curl_init('https://kasir-tester.free.beeceptor.com/asd');
+            $ch = curl_init('https://kasir-acien.online/backend/user/register');
             curl_setopt_array($ch, array(
                 CURLOPT_POST => TRUE,
                 CURLOPT_RETURNTRANSFER => TRUE,
