@@ -67,7 +67,7 @@ class Login extends MY_Controller
                 }
             } else {
                 $this->session->set_flashdata('message', 'Password salah'); // Buat session flashdata
-                redirect('Login'); // Redirect ke halaman login
+                redirect('login'); // Redirect ke halaman login
             }
         }
     }
@@ -92,7 +92,7 @@ class Login extends MY_Controller
             $cek_old = $this->UserModel->cek_old();
             if ($cek_old == False) {
                 $this->session->set_flashdata('notif', '<div class="alert alert-danger icons-alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="icofont icofont-close-line-circled"></i></button><p> Password lama tidak sama!</p></div>');
-                redirect('Login/profile');
+                redirect('login/profile');
             } else {
                 $data = ['password' => $this->input->post('new')];
                 $this->UserModel->save($data, $id);

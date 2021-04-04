@@ -34,9 +34,9 @@ class Register extends MY_Controller
         $confirm_password = ($this->input->post('confirm_password'));
 
 
-        $email = $this->input->post('email');
-        $phone_number = $this->input->post('phone');
-        $company_postfix = $this->input->post('company_postfix');
+        $email = substr($this->input->post("email"), 0, 100);
+        $phone_number = substr($this->input->post("phone"), 0, 100);
+        $company_postfix = substr($this->input->post("company_postfix"), 0, 100);
         $tanggal_gajian = intval($this->input->post('tanggal_gajian'));
 
         if ($password == $confirm_password) {

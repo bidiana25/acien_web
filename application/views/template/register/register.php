@@ -46,7 +46,7 @@
                     <a class="warning3_label_company_postfix" id='warning3_label_company_postfix'>(Tidak Boleh Ada Special Character)</a>
                     <a class="warning4_label_company_postfix" id='warning4_label_company_postfix'>(Tidak Boleh Kosong)</a>
 
-                    <input type="text" name="company_postfix" placeholder="Tanpa Spasi" id="company_postfix" class="input-text">
+                    <input type="text" name="company_postfix"  minlength="8" maxlength="40" placeholder="Tanpa Spasi" id="company_postfix" class="input-text">
 
                 </div>
 
@@ -96,7 +96,7 @@
                     <a class="warning3_label_username" id='warning3_label_username'>(Tidak Boleh Ada Special Character)</a>
                     <a class="warning4_label_username" id='warning4_label_username'>(Tidak Boleh Kosong)</a>
 
-                    <input type="text" name="username" id="username" placeholder="Tanpa Spasi" class="input-text">
+                    <input type="text" name="username" id="username"  minlength="8" maxlength="40" placeholder="Tanpa Spasi" class="input-text">
                 </div>
                 <div class="form-row">
                     <label for="Email">Alamat Email</label>
@@ -104,7 +104,7 @@
                     <a class="warning3_label_email" id='warning3_label_email'>(Email Tidak Valid)</a>
                     <a class="warning4_label_email" id='warning4_label_email'>(Tidak Boleh Kosong)</a>
 
-                    <input type="text" name="email" placeholder="Email" id="email" class="input-text">
+                    <input type="text" name="email" placeholder="Email" id="email"  minlength="8" maxlength="99" class="input-text">
                 </div>
 
                 <div class="form-row">
@@ -113,7 +113,7 @@
                     <a class="warning3_label_phone" id='warning3_label_phone'>(No Telepon Tidak Valid)</a>
                     <a class="warning4_label_phone" id='warning4_label_phone'>(Tidak Boleh Kosong)</a>
 
-                    <input type="text" name="phone" placeholder="Nomor Telepon" id="phone" class="input-text">
+                    <input type="text" name="phone" placeholder="Nomor Telepon" id="phone"  minlength="4" maxlength="15" class="input-text">
                 </div>
 
                 
@@ -127,7 +127,7 @@
                         <a class="warning4_label_password" id='warning4_label_password'>(Tidak Boleh Kosong)</a>
 
 
-                        <input type="password" name="password" placeholder="Min 8 character" id="password" class="input-text">
+                        <input type="password" name="password"  minlength="8" maxlength="20" placeholder="Min 8 character" id="password" class="input-text">
                     </div>
                     <div class="form-row form-row-1">
                         <label for="comfirm-password">Konfirmasi Password</label>
@@ -136,7 +136,7 @@
                         <a class="warning4_label_confirm_password" id='warning4_label_confirm_password'>(Tidak Boleh Kosong)</a>
 
 
-                        <input type="password" name="confirm_password" placeholder="Konfirmasi" id="confirm_password" class="input-text">
+                        <input type="password" name="confirm_password"  minlength="8" maxlength="20" placeholder="Konfirmasi" id="confirm_password" class="input-text">
                     </div>
                 </div>
                 <div class="form-row-last">
@@ -515,6 +515,14 @@
                         document.getElementById('warning2_label_password').style.display = 'none';
                         document.getElementById('warning3_label_password').style.display = 'block';
                         document.getElementById('warning4_label_password').style.display = 'none';
+                    }else if (confirm_password.length>=8 && confirm_password != password) {
+                        true_logic_confirm_password = 0;
+                        console.log("pass not match");
+                        document.getElementById('warning2_label_confirm_password').style.display = 'block';
+                        document.getElementById('warning4_label_confirm_password').style.display = 'none';
+
+
+
                     } else {
                         true_logic_password = 1;
                         document.getElementById('warning2_label_password').style.display = 'none';

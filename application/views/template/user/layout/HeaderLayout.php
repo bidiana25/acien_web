@@ -20,7 +20,7 @@
                         <ul>
                             <li><a href="<?= base_url('status_kasir') ?>">Status Kasir</a></li>
 
-                            <li><a href="#">Setting</a></li>
+                            <li><a href="<?= base_url('setting') ?>">Setting</a></li>
 
                         </ul>
                     </li>

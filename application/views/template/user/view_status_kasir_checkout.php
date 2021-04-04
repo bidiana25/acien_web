@@ -23,7 +23,7 @@ foreach ($select_existing_payment as $key => $value) {
   }
 
   $status_pembayaran ='';
-  $status_pembayaran = '<br> Menunggu Bukti Pembayaran';
+  $status_pembayaran = ' Menunggu bukti pembayaran';
   if ($payment_photo != '') {
     $status_pembayaran = $paid;
   }
