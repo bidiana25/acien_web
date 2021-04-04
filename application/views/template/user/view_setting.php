@@ -80,9 +80,9 @@ foreach ($payment_login_status as $key => $value) {
                   <th>:<input type="text" name="email" placeholder="Email" id="email" minlength="5" maxlength="100" class="input-text" value="<?= $email ?>">
                   </th>
                   <th>
-                    <a class="warning2_label_email" id='warning2_label_email'>(Email Tidak Valid)</a>
-                    <a class="warning3_label_email" id='warning3_label_email'>(Email Tidak Valid)</a>
-                    <a class="warning4_label_email" id='warning4_label_email'>(Tidak Boleh Kosong)</a>
+                    <a style="color: red;" class="warning2_label_email" id='warning2_label_email'>(Email Tidak Valid)</a>
+                    <a style="color: red;" class="warning3_label_email" id='warning3_label_email'>(Email Tidak Valid)</a>
+                    <a style="color: red;" class="warning4_label_email" id='warning4_label_email'>(Tidak Boleh Kosong)</a>
                   </th>
 
                 </tr>
@@ -93,9 +93,9 @@ foreach ($payment_login_status as $key => $value) {
                   <th>:<input type="text" name="phone" placeholder="Nomor Telepon" minlength="5" maxlength="15" id="phone" class="input-text" value="<?= $phone ?>">
                   </th>
                   <th>
-                    <a class="warning2_label_phone" id='warning2_label_phone'>(No Telepon Tidak Valid)</a>
-                    <a class="warning3_label_phone" id='warning3_label_phone'>(No Telepon Tidak Valid)</a>
-                    <a class="warning4_label_phone" id='warning4_label_phone'>(Tidak Boleh Kosong)</a>
+                    <a style="color: red;" class="warning2_label_phone" id='warning2_label_phone'>(No Telepon Tidak Valid)</a>
+                    <a style="color: red;" class="warning3_label_phone" id='warning3_label_phone'>(No Telepon Tidak Valid)</a>
+                    <a style="color: red;" class="warning4_label_phone" id='warning4_label_phone'>(Tidak Boleh Kosong)</a>
                   </th>
                 </tr>
 
