@@ -18,10 +18,39 @@ foreach ($payment_login_status as $key => $value) {
 ?>
 
 
+<style>
+  input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 10px;
+    margin-left: 60px;
+  }
 
+  input[type=text]:focus {
+    border: 2px solid #1E90FF;
+  }
 
+  input[type=password] {
+    padding: 12px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 10px;
+    margin-left: 50px;
+  }
 
-
+  input[type=password]:focus {
+    border: 2px solid #1E90FF;
+  }
+</style>
 
 <!-- lib modal-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -71,13 +100,13 @@ foreach ($payment_login_status as $key => $value) {
               <table>
                 <tr>
                   <th>Username</th>
-                  <th><a>: <?= $this->session->userdata('username')  ?></a>
+                  <th><input type="text" disabled name="username" placeholder="username" id="username" minlength="5" maxlength="100" class="input-text" value="<?= $this->session->userdata('username')  ?>">
                   </th>
                 </tr>
 
                 <tr>
                   <th>Email</th>
-                  <th>:<input type="text" name="email" placeholder="Email" id="email" minlength="5" maxlength="100" class="input-text" value="<?= $email ?>">
+                  <th><input type="text" name="email" placeholder="Email" id="email" minlength="5" maxlength="100" class="input-text" value="<?= $email ?>">
                   </th>
                   <th>
                     <a style="color: red;" class="warning2_label_email" id='warning2_label_email'>(Email Tidak Valid)</a>
@@ -90,7 +119,7 @@ foreach ($payment_login_status as $key => $value) {
 
                 <tr>
                   <th>No Telepon</th>
-                  <th>:<input type="text" name="phone" placeholder="Nomor Telepon" minlength="5" maxlength="15" id="phone" class="input-text" value="<?= $phone ?>">
+                  <th><input type="text" name="phone" placeholder="Nomor Telepon" minlength="5" maxlength="15" id="phone" class="input-text" value="<?= $phone ?>">
                   </th>
                   <th>
                     <a style="color: red;" class="warning2_label_phone" id='warning2_label_phone'>(No Telepon Tidak Valid)</a>
@@ -176,7 +205,7 @@ foreach ($payment_login_status as $key => $value) {
 
                 <tr>
                   <th>Password Baru</th>
-                  <th>:<input type="password" name="password" placeholder="Min 8 character" minlength="8" maxlength="20" id="password" class="input-text">
+                  <th><input type="password" name="password" placeholder="Min 8 character" minlength="8" maxlength="20" id="password" class="input-text">
                   </th>
 
                   <th>
@@ -189,7 +218,7 @@ foreach ($payment_login_status as $key => $value) {
 
                 <tr>
                   <th>Konfirmasi Password Baru</th>
-                  <th>:<input type="password" name="confirm_password" placeholder="Konfirmasi" minlength="8" maxlength="20" id="confirm_password" class="input-text">
+                  <th><input type="password" name="confirm_password" placeholder="Konfirmasi" minlength="8" maxlength="20" id="confirm_password" class="input-text">
                   </th>
 
                   <th>
