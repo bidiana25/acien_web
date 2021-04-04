@@ -19,6 +19,7 @@ class Setting extends MY_Controller
         $this->load->model('m_m_c_payment_method');
         $this->load->model('m_t_payment');
         $this->load->model('m_m_c_bank');
+        $this->load->model('m_t_web_visit');
     }
 
     public function index()
@@ -26,6 +27,14 @@ class Setting extends MY_Controller
         //if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
         //redirect('c_dashboard'); // Redirect ke page home
         // function render_login tersebut dari file core/MY_Controller.php
+        $data = array(
+                'pc_ip' => $this->input->ip_address(),
+                'date' => date('Y-m-d'),
+                'time' => date('H:i:s'),
+                'controller_name' => 'Setting'
+        );
+
+        $this->m_t_web_visit->tambah($data);
         
             $read_select = $this->m_payment_login->select_by_username($this->session->userdata('username'));
             foreach ($read_select as $key => $value) {

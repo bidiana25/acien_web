@@ -11,14 +11,25 @@ class Register extends MY_Controller
         $this->load->model('UserModel');
         $this->load->model('m_payment_login');
         $this->load->model('m_companies');
+        $this->load->model('m_t_web_visit');
     }
 
     public function index()
     {
+        $data = array(
+                'pc_ip' => $this->input->ip_address(),
+                'date' => date('Y-m-d'),
+                'time' => date('H:i:s'),
+                'controller_name' => 'Register'
+        );
+
+        $this->m_t_web_visit->tambah($data);
+        
         if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
             redirect('dashboard'); // Redirect ke page home
         // function render_login tersebut dari file core/MY_Controller.php
         $this->render_register('template/register/register'); // Load view login.php
+
     }
 
 

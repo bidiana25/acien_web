@@ -19,6 +19,7 @@ class Status_kasir extends MY_Controller
         $this->load->model('m_m_c_payment_method');
         $this->load->model('m_t_payment');
         $this->load->model('m_m_c_bank');
+        $this->load->model('m_t_web_visit');
     }
 
     public function index()
@@ -26,6 +27,16 @@ class Status_kasir extends MY_Controller
         //if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
         //redirect('c_dashboard'); // Redirect ke page home
         // function render_login tersebut dari file core/MY_Controller.php
+
+        $data = array(
+                'pc_ip' => $this->input->ip_address(),
+                'date' => date('Y-m-d'),
+                'time' => date('H:i:s'),
+                'controller_name' => 'Status_kasir'
+        );
+
+        $this->m_t_web_visit->tambah($data);
+        
         $ada_checkout = 0;
         $read_select = $this->m_t_payment->select_existing_payment($this->session->userdata('username'));
         foreach ($read_select as $key => $value) {
