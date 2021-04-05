@@ -5,6 +5,14 @@ class M_payment_login extends CI_Model
 
 
 
+
+
+    public function update_for_delete($data, $created_date_time)
+    {
+        $this->db->where('created_date_time', $created_date_time);
+        return $this->db->update('payment_login', $data);
+    }
+
     public function update($data, $username)
     {
         $this->db->where('username', $username);
@@ -19,6 +27,26 @@ class M_payment_login extends CI_Model
         $akun = $this->db->get();
         return $akun->result();
     }
+
+
+    public function select_by_date($date)
+    {
+        $date = strtotime(date('Y-m-d H:i:s'));
+        $date_before = strtotime(date('Y-m-d H:i:s',(strtotime ( '-30 day' , strtotime ( $date) ) )));
+
+        $this->db->select('*');
+        $this->db->from('payment_login');
+        
+        $this->db->where("created_date_time>='{$date_before}'");
+
+        $this->db->where("created_date_time<='{$date}'");
+
+        $akun = $this->db->get();
+        return $akun->result();
+    }
+
+
+    
 
     
     public function select_count_id()

@@ -69,7 +69,8 @@ class Login extends MY_Controller
                         'authenticated' => true, // Buat session authenticated dengan value true
                         'password' => $user->password,
                         'username' => $user->username,
-                        'date_dashboard' => date('Y-m-d')
+                        'date_dashboard' => date('Y-m-d'),
+                        'date_payment_login' => date('Y-m-d')
                     );
 
                     $this->session->set_userdata($session); // Buat session sesuai $session

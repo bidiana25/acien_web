@@ -6,11 +6,19 @@
     <li <?php if ($this->uri->segment(2) == "buku_besar") {
             echo 'class="pcoded-hasmenu"';
         } ?>>
-        <a href="<?= base_url("dashboard/"); ?>" class="waves-effect waves-dark">
+        <a href="<?= base_url("a_c_dashboard/"); ?>" class="waves-effect waves-dark">
             <span class="pcoded-micon">
                 <i class="feather icon-credit-card"></i>
             </span>
             <span class="pcoded-mtext">Dashboard</span>
+        </a>
+
+
+        <a href="<?= base_url("a_c_payment_login/"); ?>" class="waves-effect waves-dark">
+            <span class="pcoded-micon">
+                <i class="feather icon-credit-card"></i>
+            </span>
+            <span class="pcoded-mtext">List User(Bos Only)</span>
         </a>
     </li>
 
