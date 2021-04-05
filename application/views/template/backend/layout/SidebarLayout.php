@@ -20,6 +20,13 @@
             </span>
             <span class="pcoded-mtext">List User(Bos Only)</span>
         </a>
+
+        <a href="<?= base_url("a_c_t_web_visit/"); ?>" class="waves-effect waves-dark">
+            <span class="pcoded-micon">
+                <i class="feather icon-credit-card"></i>
+            </span>
+            <span class="pcoded-mtext">Web Visit Transaction</span>
+        </a>
     </li>
 
 

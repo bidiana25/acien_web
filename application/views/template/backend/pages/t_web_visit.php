@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <form action='<?php echo base_url("a_c_payment_login/date_payment_login"); ?>' class='no_voucer_area' method="post" id=''>
+    <form action='<?php echo base_url("a_c_t_web_visit/date_t_web_visit"); ?>' class='no_voucer_area' method="post" id=''>
       <table>
         <tr>
           <th>
@@ -8,7 +8,7 @@
           </th>
           <th>
             <form action='/action_page.php'>
-              <input type='date' class='form-control' name='date_payment_login' value='<?= $this->session->userdata('date_payment_login') ?>' onchange='this.form.submit();'>
+              <input type='date' class='form-control' name='date_t_web_visit' value='<?= $this->session->userdata('date_t_web_visit') ?>' onchange='this.form.submit();'>
           </th>
         </tr>
       </table>
@@ -29,46 +29,31 @@
           <tr>
             <th>No</th>
             <th>Date</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Phone</th>
+            <th>IP</th>
+            <th>Controller</th>
 
-
-            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           <?php
           $nomor = 0;
-          foreach ($a_c_payment_login as $key => $value) {
+          foreach ($a_c_t_web_visit as $key => $value) {
             
-            if ($value->mark_for_delete == 'f') {
+           
 
               $nomor = $nomor+1;
               echo "<tr>";
-              echo "<td>" . ($nomor) . "</td>";
-              echo "<td>" . date('d-m-Y', ($value->created_date_time)) . " / " . date('H:i', ($value->created_date_time)) . "</td>";
-              echo "<td>" . $value->username . "</td>";
-              echo "<td>" . $value->email . "</td>";
-              echo "<td>" . $value->phone . "</td>";
-              
-
-
-              echo "<td>";
+              echo "<td>" . ($value->id) . "</td>";
+              echo "<td>" . date('d-m-Y', strtotime($value->date)) . " / " . date('H:i', strtotime($value->time)) . "</td>";
+              echo "<td>" . $value->pc_ip . "</td>";
+              echo "<td>" . $value->controller_name . "</td>";
 
               
 
-
-
-              echo "<a href='" . site_url('a_c_payment_login/delete/' . $value->created_date_time) . "' ";
-              echo "onclick=\"return confirm('Apakah kamu yakin ingin menghapus data ini?')\"";
-              echo "> <i class='feather icon-trash-2 f-w-600 f-16 text-c-red'></i></a>";
-
-              echo "</td>";
 
 
               echo "</tr>";
-            }
+            
           }
           ?>
         </tbody>
