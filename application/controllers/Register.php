@@ -24,7 +24,7 @@ class Register extends MY_Controller
         );
 
         $this->m_t_web_visit->tambah($data);
-        
+
         if ($this->session->userdata('authenticated')) // Jika user sudah login (Session authenticated ditemukan)
             redirect('dashboard'); // Redirect ke page home
         // function render_login tersebut dari file core/MY_Controller.php
@@ -81,7 +81,8 @@ class Register extends MY_Controller
                 'email' => $email,
                 'phone' => $phone_number,
                 'mark_for_delete' => false,
-                'level_user_id' => 1
+                'level_user_id' => 1,
+                'created_date_time' => intval(strtotime(date('Y-m-d H:i:s')))
             );
 
             $this->m_payment_login->tambah($data);
