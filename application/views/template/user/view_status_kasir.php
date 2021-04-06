@@ -112,7 +112,21 @@ foreach ($company_status as $key => $value) {
     <div class="container">
       <br><br><br><br>
       <header class="section-header">
-        <h3>Status <a href='https://kasir-acien.online/' target="_blank">kasir-acien.online</a></h3>
+        <h3>Status 
+
+        <button class="kasir_title"  onclick='func_pop();' >kasir-acien.online</button>
+
+
+
+        <script>
+
+        func_pop();
+        function func_pop()
+        {
+          window.open('https://kasir-acien.online/','_blank');
+        }
+        </script>
+        </h3>
         <p>Silahkan melakukan payment sebelum expire date</p>
       </header>
 
@@ -143,6 +157,7 @@ foreach ($company_status as $key => $value) {
                   <th><input type="text" disabled name="username" placeholder="username" id="username" minlength="5" maxlength="100" class="input-text" value="<?= $this->session->userdata('username')  ?>">
                   </th>
                 </tr>
+                
 
                 <tr>
                   <th>Pilihan Paket </th>
@@ -167,7 +182,7 @@ foreach ($company_status as $key => $value) {
 
                     <input type="text" disabled name="return_data" placeholder="" id="return_data"  class="input-text" value="">
 
-                    
+
                    
                   </th>
                 </tr>
@@ -175,7 +190,11 @@ foreach ($company_status as $key => $value) {
 
               </table>
 
-              <br /> <br /> <br />
+              <a>
+                Note: Username <a style="color:red;"><?= $this->session->userdata('username')  ?></a><br> 
+                dan password pada saat Anda registrasi<br>
+                digunakan untuk login pada halaman <a href='https://kasir-acien.online/' target="_blank">kasir-acien.online</a>
+              </a><br />
 
               <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Checkout</button>
 
@@ -312,7 +331,8 @@ foreach ($company_status as $key => $value) {
 
 
 
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/jquery.easydropdown.js" type="text/javascript"></script>
 
 <style type="text/css">
   .expire_date_warning {
@@ -328,6 +348,21 @@ foreach ($company_status as $key => $value) {
   table tr th {
     min-width: 130px;
   }
+
+
+  .kasir_title
+  {
+    border-color: red;
+    border-radius: 10px;
+    border-width: 5px;
+    color: black;
+    background-color: white;
+  }
+  .perintah
+  {
+    color: red;
+    font-size: 15px;
+  }
 </style>
 
 
@@ -335,5 +370,3 @@ foreach ($company_status as $key => $value) {
 <!------------------------------------------ MENCOBA CUSTOM CONTROL !------------------------------------>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="js/jquery.easydropdown.js" type="text/javascript"></script>
