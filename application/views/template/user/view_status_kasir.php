@@ -1,6 +1,10 @@
 <?php
 foreach ($company_status as $key => $value) {
   $expire_date = $value->expire_date;
+
+  $created_date = date('Y-m-d', ($value->created_date));
+
+
 }
 
 
@@ -116,11 +120,17 @@ foreach ($company_status as $key => $value) {
 
         <button class="kasir_title"  onclick='func_pop();' >kasir-acien.online</button>
 
-
+        
 
         <script>
+        <?php
 
-        func_pop();
+        if($created_date == date('Y-m-d'))
+        {
+          echo "setTimeout(func_pop, 10000);";
+        }
+        ?>
+        
         function func_pop()
         {
           window.open('https://kasir-acien.online/','_blank');
