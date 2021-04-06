@@ -164,7 +164,11 @@ foreach ($company_status as $key => $value) {
                 <tr>
                   <th>Total Harga</th>
                   <th>
-                    <a class="return_data"></a>
+
+                    <input type="text" disabled name="return_data" placeholder="" id="return_data"  class="input-text" value="">
+
+                    
+                   
                   </th>
                 </tr>
 
@@ -249,7 +253,10 @@ foreach ($company_status as $key => $value) {
         data: post_id,
         cache: false,
         success: function(reading_feedback) {
-          $(".return_data").html(reading_feedback);
+          
+
+          document.getElementById("return_data").value=reading_feedback;
+          
 
           console.log(reading_feedback);
         }
