@@ -119,7 +119,7 @@ class Status_kasir extends MY_Controller
         if (isset($_FILES["image_file"]["name"])) {
             $config['upload_path'] = './upload/';
             $config['allowed_types'] = 'jpg|jpeg|png|gif';
-            $config['max_size']      = 5000;
+            $config['max_size']      = 15000;
 
             $new_name = strtotime(date('Y-m-d H:i:s')); //ini rename img
             $config['file_name'] = $new_name;
