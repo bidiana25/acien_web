@@ -127,7 +127,7 @@ foreach ($company_status as $key => $value) {
 
         if($created_date == date('Y-m-d'))
         {
-          echo "setTimeout(func_pop, 10000);";
+          //echo "setTimeout(func_pop, 10000);";
         }
         ?>
         
