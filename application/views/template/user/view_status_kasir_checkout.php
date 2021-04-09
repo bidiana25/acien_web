@@ -30,22 +30,71 @@ foreach ($select_existing_payment as $key => $value) {
 }
 ?>
 
-<style>
-  input[type=text] {
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-    border-radius: 10px;
-    margin-left: 60px;
-  }
 
-  input[type=text]:focus {
-    border: 2px solid #1E90FF;
+
+
+
+
+<style>
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
   }
+}
 </style>
 
 
@@ -81,33 +130,60 @@ foreach ($select_existing_payment as $key => $value) {
             <div class="icon"><i class="fa fa-shopping-bag"></i></div>
             <h4 class="title"><a href="">Menunggu Pembayaran</a></h4>
             <form action="<?php echo base_url('status_kasir/checkout') ?>" method="post">
-              <table>
-                <tr>
-                  <th>Tanggal Pembelian</th>
-                  <th><input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= date('d-M-Y', strtotime($date)) . ' / ' . date('H:i', strtotime($time)) ?>"></th>
-                </tr>
-                <tr>
-                  <th>Username</th>
-                  <th><input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= $username  ?>"> </th>
-                </tr>
-                <tr>
-                  <th>Durasi Paket</th>
-                  <th><input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= $total_day . ' Hari' ?>"> </th>
-                </tr>
-                <tr>
-                  <th>Total Tagihan</th>
-                  <th><input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= number_format($payment_value) ?>"></th>
-                </tr>
-                <tr>
-                  <th>Status Pembayaran</th>
-                  <th><input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= ($aproval_text) ?>"></th>
-                </tr>
-              </table><br /><button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal3">Metode Pembayaran</button>&nbsp;
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Tanggal Pembelian</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= date('d-M-Y', strtotime($date)) . ' / ' . date('H:i', strtotime($time)) ?>">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Username</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= $username  ?>">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Durasi Paket</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= $total_day . ' Hari' ?>">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Total Tagihan</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= number_format($payment_value) ?>">
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Status Pembayaran</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= ($aproval_text) ?>">
+                </div>
+              </div>
+
+
+              <br /><button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal3">Metode Pembayaran</button>&nbsp;
               <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Upload Bukti Pembayaran</button><br /><br /><button style="margin-left: 100px;" type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal">Batalkan Transaksi</button><br /><br />
               <!-- Modal -->
               <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-                  < !-- Modal content-->
+                  
                     <div class="modal-content">
                       <div class="modal-header">
                         <h4 class="modal-title">Apakah Kamu Yakin Untuk Membatalkan Transaksi?</h4><button type="button" class="close" data-dismiss="modal">&times;
@@ -121,7 +197,7 @@ foreach ($select_existing_payment as $key => $value) {
             <!-- Modal -->
             <div class="modal fade" id="myModal3" role="dialog">
               <div class="modal-dialog">
-                <!-- Modal content-->
+                
                 <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title">Metode Pembayaran</h4><button type="button" class="close" data-dismiss="modal">&times;
@@ -182,7 +258,7 @@ foreach ($select_existing_payment as $key => $value) {
             <!-- Modal upload payment-->
             <div class="modal fade" id="myModal2" role="dialog">
               <div class="modal-dialog">
-                <!-- Modal content-->
+               
                 <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title">Upload Bukti Pembayaran</h4><button type="button" class="close" data-dismiss="modal">&times;

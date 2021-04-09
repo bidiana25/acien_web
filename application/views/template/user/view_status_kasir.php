@@ -26,85 +26,65 @@ foreach ($company_status as $key => $value) {
 
 
 <style>
-  input[type=text] {
-    padding: 12px 20px;
-    width: 20em;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-    border-radius: 10px;
-    margin-left: 60px;
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  margin-left: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
   }
-
-  input[type=text]:focus {
-    border: 2px solid #1E90FF;
-  }
-</style>
-
-
-<!-- CSS untuk style dropdown !-->
-<style>
-  /* Reset Select */
-  select {
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
-    outline: 0;
-    box-shadow: none;
-    border: 0 !important;
-    background: #E8E8E8;
-    background-image: none;
-
-  }
-
-  /* Remove IE arrow */
-  select::-ms-expand {
-    display: none;
-  }
-
-  /* Custom Select */
-  .select {
-    position: relative;
-    display: flex;
-    width: 20em;
-    height: 3em;
-    line-height: 3;
-    background: #F5F5DC;
-    overflow: hidden;
-    border-radius: .25em;
-  }
-
-  select {
-    flex: 1;
-    padding: 0 .5em;
-    color: #000000;
-    cursor: pointer;
-  }
-
-  /* Arrow */
-  .select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 1em;
-    background: #4169E1;
-    cursor: pointer;
-    pointer-events: none;
-    -webkit-transition: .25s all ease;
-    -o-transition: .25s all ease;
-    transition: .25s all ease;
-  }
-
-  /* Transition */
-  .select:hover::after {
-    color: #f39c12;
-  }
+}
 </style>
 
 <main id="main">
@@ -161,52 +141,58 @@ foreach ($company_status as $key => $value) {
             <h4 class="title"><a href="">Pilih Paket</a></h4>
 
             <form action="<?php echo base_url('status_kasir/tambah') ?>" method="post">
-              <table>
-                <tr>
-                  <th>Username</th>
-                  <th><input type="text" disabled name="username" placeholder="username" id="username" minlength="5" maxlength="100" class="input-text" value="<?= $this->session->userdata('username')  ?>">
-                  </th>
-                </tr>
-                
+              
 
-                <tr>
-                  <th>Pilihan Paket </th>
-                  <th>
-                    <div class="select" style="margin-left: 60px;">
-                      <select required name="m_c_payment_method_id" class='m_c_payment_method_id' id='m_c_payment_method_id'>
+
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Username</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" disabled name="username" placeholder="username" id="username" minlength="5" maxlength="100" class="input-text" value="<?= $this->session->userdata('username')  ?>">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Pilihan Paket</label>
+                </div>
+                <div class="col-75">
+                  <select required name="m_c_payment_method_id" class='m_c_payment_method_id' id='m_c_payment_method_id'>
                         <option value="" disabled selected>Pilih Paket</option>
                         <?php
                         foreach ($pilihan_payment as $key => $value) {
                           echo "<option value='" . $value->id . "' label='" . $value->show_text . ' - Rp' . number_format($value->value) . "'></option>";
                         }
                         ?>
-                      </select>
-                    </div>
+                  </select>
+                </div>
+              </div>
 
 
-                  </th>
-                </tr>
-                <tr>
-                  <th>Total Harga</th>
-                  <th>
-
-                    <input type="text" disabled name="return_data" placeholder="" id="return_data"  class="input-text" value="">
-
-
-                   
-                  </th>
-                </tr>
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Total Harga</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" disabled name="return_data" placeholder="" id="return_data"  class="input-text" value="">
+                </div>
+              </div>
 
 
-              </table>
+              
+      
+              
+                <br/>
+                <a>
+                  Note: Username <a style="color:red;"><?= $this->session->userdata('username')  ?></a><br> 
+                  dan password pada saat Anda registrasi<br>
+                  digunakan untuk login pada halaman <a href='https://kasir-acien.online/' target="_blank">kasir-acien.online</a>
+                </a><br/><br/>
 
-              <a>
-                Note: Username <a style="color:red;"><?= $this->session->userdata('username')  ?></a><br> 
-                dan password pada saat Anda registrasi<br>
-                digunakan untuk login pada halaman <a href='https://kasir-acien.online/' target="_blank">kasir-acien.online</a>
-              </a><br />
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Checkout</button>
 
-              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Checkout</button>
 
 
 

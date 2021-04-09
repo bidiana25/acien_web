@@ -37,6 +37,7 @@ class Register extends MY_Controller
 
 
 
+
     public function tambah()
     {
 
@@ -53,89 +54,106 @@ class Register extends MY_Controller
         if ($password == $confirm_password) {
             $send_password = md5($password);
             $uniq_id = intval(strtotime(date('Y-m-d H:i:s')));
-            $data = array(
-                'id' => $uniq_id,
-                'created_by' => 'acien app',
-                'created_date' => intval(strtotime(date('Y-m-d H:i:s'))),
-                'updated_by' => '',
-                'updated_date' => 0,
-                'version' => 0,
-                'address' => '',
-                'company_postfix' => '@' . $company_postfix,
-                'logo_path' => 0,
-                'maximum_user' => 5,
-                'name' => $company_postfix,
-                'phone_number' => $phone_number,
-                'pic' => $username,
-                'suspend' => false,
-                'expire_date' => date('Y-m-d'),
-                'wage_cutoff_date' => $tanggal_gajian
-            );
-            $this->m_companies->tambah($data);
 
 
-            $data = array(
-                'username' => $username . '@' . $company_postfix,
-                'password' => $send_password,
-                'company_id' => $uniq_id,
-                'email' => $email,
-                'phone' => $phone_number,
-                'mark_for_delete' => false,
-                'level_user_id' => 1,
-                'created_date_time' => intval(strtotime(date('Y-m-d H:i:s')))
-            );
 
-            $this->m_payment_login->tambah($data);
+            $already_register = 0;
 
-
-            // ...........................................hit api jeffrey table user
-            $postData = array(
-                'user' => array(
-                    'username' => $username . '@' . $company_postfix,
-                    'password' => $password,
-                    'name' => $username,
-                    'company_id' => $uniq_id
-                )
-            );
-
-            // Setup cURL
-            $ch = curl_init('https://kasir-acien.online/backend/user/register');
-            curl_setopt_array($ch, array(
-                CURLOPT_POST => TRUE,
-                CURLOPT_RETURNTRANSFER => TRUE,
-                CURLOPT_HTTPHEADER => array(
-                                            'Content-Type: application/json',
-                                            'Connection: Keep-Alive'
-                                            ),
-                CURLOPT_POSTFIELDS => json_encode($postData)
-            ));
-
-            // Send the request
-            $response = curl_exec($ch);
-
-            // Check for errors
-            if ($response === FALSE) {
-                die(curl_error($ch));
+            $read_company_postfix = '@'.$company_postfix;
+            $read_select = $this->m_companies->select_by_company_postfix($read_company_postfix);
+            foreach ($read_select as $key => $value) 
+            {
+                redirect('Login');
+                $already_register = 1;
             }
 
-            // Decode the response
-            $responseData = json_decode($response, TRUE);
+            if($already_register == 0)
+            {
+                $data = array(
+                    'id' => $uniq_id,
+                    'created_by' => 'acien app',
+                    'created_date' => intval(strtotime(date('Y-m-d H:i:s'))),
+                    'updated_by' => '',
+                    'updated_date' => 0,
+                    'version' => 0,
+                    'address' => '',
+                    'company_postfix' => '@' . $company_postfix,
+                    'logo_path' => 0,
+                    'maximum_user' => 5,
+                    'name' => $company_postfix,
+                    'phone_number' => $phone_number,
+                    'pic' => $username,
+                    'suspend' => false,
+                    'expire_date' => date('Y-m-d'),
+                    'wage_cutoff_date' => $tanggal_gajian
+                );
+                $this->m_companies->tambah($data);
 
-            // Close the cURL handler
-            curl_close($ch);
 
-            // Print the date from the response
-            //echo $responseData['published'];
+                $data = array(
+                    'username' => $username . '@' . $company_postfix,
+                    'password' => $send_password,
+                    'company_id' => $uniq_id,
+                    'email' => $email,
+                    'phone' => $phone_number,
+                    'mark_for_delete' => false,
+                    'level_user_id' => 1,
+                    'created_date_time' => intval(strtotime(date('Y-m-d H:i:s')))
+                );
 
-            // ...........................................hit api jeffrey table user end
+                $this->m_payment_login->tambah($data);
+
+
+                // ...........................................hit api jeffrey table user
+                $postData = array(
+                    'user' => array(
+                        'username' => $username . '@' . $company_postfix,
+                        'password' => $password,
+                        'name' => $username,
+                        'company_id' => $uniq_id
+                    )
+                );
+
+                // Setup cURL
+                $ch = curl_init('https://kasir-acien.online/backend/user/register');
+                curl_setopt_array($ch, array(
+                    CURLOPT_POST => TRUE,
+                    CURLOPT_RETURNTRANSFER => TRUE,
+                    CURLOPT_HTTPHEADER => array(
+                                                'Content-Type: application/json',
+                                                'Connection: Keep-Alive'
+                                                ),
+                    CURLOPT_POSTFIELDS => json_encode($postData)
+                ));
+
+                // Send the request
+                $response = curl_exec($ch);
+
+                // Check for errors
+                if ($response === FALSE) {
+                    die(curl_error($ch));
+                }
+
+                // Decode the response
+                $responseData = json_decode($response, TRUE);
+
+                // Close the cURL handler
+                curl_close($ch);
+
+                // Print the date from the response
+                //echo $responseData['published'];
+
+                // ...........................................hit api jeffrey table user end
 
 
 
 
-            $this->session->set_userdata('registered_username', $username . '@' . $company_postfix);
+                $this->session->set_userdata('registered_username', $username . '@' . $company_postfix);
 
-            $this->session->set_flashdata('notif', "<div class='alert alert-danger icons-alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><i class='icofont icofont-close-line-circled'></i></button><p>Registrasi Berhasil Untuk Username:" . $username . '@' . $company_postfix . "</p></div>");
-            redirect('Login');
+                $this->session->set_flashdata('notif', "<div class='alert alert-danger icons-alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><i class='icofont icofont-close-line-circled'></i></button><p>Registrasi Berhasil Untuk Username:" . $username . '@' . $company_postfix . "</p></div>");
+                redirect('Login');
+            }
+            
         } else {
             redirect('register/register');
         }
