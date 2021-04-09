@@ -71,7 +71,8 @@ class Login extends MY_Controller
                         'username' => $user->username,
                         'date_dashboard' => date('Y-m-d'),
                         'date_payment_login' => date('Y-m-d'),
-                        'date_t_web_visit' => date('Y-m-d')
+                        'date_t_web_visit' => date('Y-m-d'),
+                        'date_companies' => date('Y-m-d')
                     );
 
                     $this->session->set_userdata($session); // Buat session sesuai $session

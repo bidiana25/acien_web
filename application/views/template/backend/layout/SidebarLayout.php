@@ -27,6 +27,22 @@
             </span>
             <span class="pcoded-mtext">Web Visit Transaction</span>
         </a>
+
+        <a href="<?= base_url("a_c_companies/"); ?>" class="waves-effect waves-dark">
+            <span class="pcoded-micon">
+                <i class="feather icon-credit-card"></i>
+            </span>
+            <span class="pcoded-mtext">Companies UN-Suspend</span>
+        </a>
+
+
+        <a href="<?= base_url("a_c_companies_2/"); ?>" class="waves-effect waves-dark">
+            <span class="pcoded-micon">
+                <i class="feather icon-credit-card"></i>
+            </span>
+            <span class="pcoded-mtext">Companies Suspended</span>
+        </a>
+
     </li>
 
 

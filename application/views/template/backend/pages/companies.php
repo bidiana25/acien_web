@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <form action='<?php echo base_url("a_c_t_web_visit/date_t_web_visit"); ?>' class='no_voucer_area' method="post" id=''>
+    <form action='<?php echo base_url("a_c_companies/date_companies"); ?>' class='no_voucer_area' method="post" id=''>
       <table>
         <tr>
           <th>
@@ -8,7 +8,7 @@
           </th>
           <th>
             <form action='/action_page.php'>
-              <input type='date' class='form-control' name='date_t_web_visit' value='<?= $this->session->userdata('date_t_web_visit') ?>' onchange='this.form.submit();'>
+              <input type='date' class='form-control' name='date_companies' value='<?= $this->session->userdata('date_companies') ?>' onchange='this.form.submit();'>
           </th>
         </tr>
       </table>
@@ -28,25 +28,54 @@
         <thead>
           <tr>
             <th>No</th>
-            <th>Date</th>
-            <th>IP</th>
-            <th>Controller</th>
+            <th>Company Postfix</th>
+            <th>Suspend</th>
+
 
           </tr>
         </thead>
         <tbody>
           <?php
           $nomor = 0;
-          foreach ($a_c_t_web_visit as $key => $value) {
+          foreach ($a_c_companies as $key => $value) {
             
            
 
               $nomor = $nomor+1;
               echo "<tr>";
               echo "<td>" . ($value->id) . "</td>";
-              echo "<td>" . ($value->date) . " / " . ($value->time) . "</td>";
-              echo "<td>" . $value->pc_ip . "</td>";
-              echo "<td>" . $value->controller_name . "</td>";
+              echo "<td>" . $value->company_postfix . "</td>";
+              echo "<td>";
+              echo $value->suspend;
+
+              
+              if($value->suspend=='f')
+              {
+                $ok_color = 'red';
+
+                  echo "<a href='" . site_url('a_c_companies/suspend/' . $value->id) . "' ";
+                  ?>
+                  onclick="return confirm('Apakah kamu yakin mensuspend dia?')"
+                  <?php
+                  echo "> <i class='fa fa-check f-w-600 f-16 text-c-" . $ok_color . "'></i></a>";
+              }
+
+              if($value->suspend=='t')
+              {
+                $ok_color = 'green';
+
+                  echo "<a href='" . site_url('a_c_companies/unsuspend/' . $value->id) . "' ";
+                  ?>
+                  onclick="return confirm('Apakah kamu yakin mengembalikan unsuspend dia?')"
+                  <?php
+                  echo "> <i class='fa fa-check f-w-600 f-16 text-c-" . $ok_color . "'></i></a>";
+              }
+
+
+              
+
+
+              echo "</td>";
 
               
 

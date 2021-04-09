@@ -40,6 +40,31 @@ class M_companies extends CI_Model
         return $akun->result();
     }
 
+    public function select_by_date($date,$suspend_logic)
+    {
+        $date = strtotime(date('Y-m-d H:i:s'));
+        $date_before = strtotime(date('Y-m-d H:i:s',(strtotime ( '-30 day' , strtotime ( $date) ) )));
+
+        $this->db->select('*');
+        $this->db->from('companies');
+        
+        $this->db->where("created_date>='{$date_before}'");
+
+        $this->db->where("created_date<='{$date}'");
+
+        if($suspend_logic==0)
+        {
+            $this->db->where("suspend='f'");
+        }
+        if($suspend_logic==1)
+        {
+            $this->db->where("suspend='t'");
+        }
+
+        $akun = $this->db->get();
+        return $akun->result();
+    }
+
 
 
     function tambah($data)
