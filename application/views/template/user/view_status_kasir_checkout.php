@@ -38,12 +38,13 @@ foreach ($select_existing_payment as $key => $value) {
 <style>
 
 
-input[type=text], select, textarea {
+input[type=button], select, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+  text-align: left;
 }
 
 label {
@@ -136,7 +137,7 @@ input[type=submit]:hover {
                   <label for="fname">Tanggal Pembelian</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= date('d-M-Y', strtotime($date)) . ' / ' . date('H:i', strtotime($time)) ?>">
+                  <input type="button" minlength="5" maxlength="100" class="input-text" value="<?= date('d-M-Y', strtotime($date)) . ' / ' . date('H:i', strtotime($time)) ?>">
                 </div>
               </div>
 
@@ -145,7 +146,7 @@ input[type=submit]:hover {
                   <label for="fname">Username</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= $username  ?>">
+                  <input type="button" minlength="5" maxlength="100" class="input-text" value="<?= $username  ?>">
                 </div>
               </div>
 
@@ -154,7 +155,7 @@ input[type=submit]:hover {
                   <label for="fname">Durasi Paket</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= $total_day . ' Hari' ?>">
+                  <input type="button" minlength="5" maxlength="100" class="input-text" value="<?= $total_day . ' Hari' ?>">
                 </div>
               </div>
 
@@ -163,7 +164,7 @@ input[type=submit]:hover {
                   <label for="fname">Total Tagihan</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= number_format($payment_value) ?>">
+                  <input type="button" minlength="5" maxlength="100" class="input-text" value="<?= number_format($payment_value) ?>">
                 </div>
               </div>
 
@@ -173,7 +174,7 @@ input[type=submit]:hover {
                   <label for="fname">Status Pembayaran</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" disabled minlength="5" maxlength="100" class="input-text" value="<?= ($aproval_text) ?>">
+                  <input type="button" minlength="5" maxlength="100" class="input-text" value="<?= ($aproval_text) ?>">
                 </div>
               </div>
 
@@ -320,6 +321,13 @@ input[type=submit]:hover {
     }
 
   );
+
+
+
+
+
+
+
 </script>
 <style type="text/css">
   .expire_date_warning {

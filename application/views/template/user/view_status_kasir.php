@@ -28,12 +28,14 @@ foreach ($company_status as $key => $value) {
 <style>
 
 
-input[type=text], select, textarea {
+input[type=button], select, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+  color: black;
+  text-align: left;
 }
 
 label {
@@ -150,7 +152,7 @@ input[type=submit]:hover {
                   <label for="fname">Username</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" disabled name="username" placeholder="username" id="username" minlength="5" maxlength="100" class="input-text" value="<?= $this->session->userdata('username')  ?>">
+                  <input type="button" name="username" placeholder="username" id="username" minlength="5" maxlength="100" class="input-text" value="<?= $this->session->userdata('username')  ?>">
                 </div>
               </div>
 
@@ -163,7 +165,7 @@ input[type=submit]:hover {
                         <option value="" disabled selected>Pilih Paket</option>
                         <?php
                         foreach ($pilihan_payment as $key => $value) {
-                          echo "<option value='" . $value->id . "' label='" . $value->show_text . ' - Rp' . number_format($value->value) . "'></option>";
+                          echo "<option value='" . $value->id . "' >".$value->show_text . ' - Rp' . number_format($value->value)."</option>";
                         }
                         ?>
                   </select>
@@ -176,7 +178,7 @@ input[type=submit]:hover {
                   <label for="fname">Total Harga</label>
                 </div>
                 <div class="col-75">
-                  <input type="text" disabled name="return_data" placeholder="" id="return_data"  class="input-text" value="">
+                  <input type="button"  name="return_data" placeholder="" id="return_data"  class="input-text" value="">
                 </div>
               </div>
 
@@ -256,6 +258,25 @@ input[type=submit]:hover {
 
 
 <script type="text/javascript">
+
+$(document).ready(function () {
+
+    $('#ph2').mouseenter(function () {
+
+      var html = '';
+
+        $(this).find('option').each(function () {
+
+            if ($(this).css('display') !== 'none') {
+
+                html = html + '<option>' + $(this).text() + '</option>';   
+            }
+        });
+
+        $(this).html(html);
+    })
+});
+
   $(document).ready(function() {
 
     $(".m_c_payment_method_id").change(function() {
