@@ -51,6 +51,8 @@ class Register extends MY_Controller
         $company_postfix = substr($this->input->post("company_postfix"), 0, 100);
         $tanggal_gajian = intval($this->input->post('tanggal_gajian'));
 
+        $expire_date = date('Y-m-d', strtotime(date('Y-m-d'). ' + 7 days'));
+
         if ($password == $confirm_password) {
             $send_password = md5($password);
             $uniq_id = intval(strtotime(date('Y-m-d H:i:s')));
@@ -84,7 +86,7 @@ class Register extends MY_Controller
                     'phone_number' => $phone_number,
                     'pic' => $username,
                     'suspend' => false,
-                    'expire_date' => date('Y-m-d'),
+                    'expire_date' => $expire_date,
                     'wage_cutoff_date' => $tanggal_gajian
                 );
                 $this->m_companies->tambah($data);
