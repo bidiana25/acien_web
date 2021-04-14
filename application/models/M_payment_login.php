@@ -37,9 +37,9 @@ class M_payment_login extends CI_Model
         $this->db->select('*');
         $this->db->from('payment_login');
         
-        $this->db->where("created_date_time>='{$date_before}'");
+        //$this->db->where("created_date_time>='{$date_before}'");
 
-        $this->db->where("created_date_time<='{$date}'");
+        //$this->db->where("created_date_time<='{$date}'");
 
         $akun = $this->db->get();
         return $akun->result();

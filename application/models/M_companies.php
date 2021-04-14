@@ -48,9 +48,9 @@ class M_companies extends CI_Model
         $this->db->select('*');
         $this->db->from('companies');
         
-        $this->db->where("created_date>='{$date_before}'");
+        //$this->db->where("created_date>='{$date_before}'");
 
-        $this->db->where("created_date<='{$date}'");
+        //$this->db->where("created_date<='{$date}'");
 
         if($suspend_logic==0)
         {
