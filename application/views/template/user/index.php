@@ -149,7 +149,7 @@ $hour_support = $secs / 1440;
             <div class="owl-carousel testimonials-carousel wow fadeInUp">
     
               <div class="testimonial-item">
-                <img src="<?php echo base_url() ?>assets/NewBiz/img/antony.JPG" class="testimonial-img" alt="">
+                <img src="<?php echo base_url() ?>assets/NewBiz/img/antony.jpg" class="testimonial-img" alt="">
                 <h3>Antony Dermawan</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <p>
