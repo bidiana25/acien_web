@@ -19,7 +19,32 @@ $hour_support = $secs / 1440;
 ?>
 
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=6282129871101&text=Send20%a20%quote" class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
 
+<style type="text/css">
+.float{
+    position:fixed;
+    width:45px;
+    height:60px;
+    bottom:65px;
+    right:15px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+  font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+    margin-top:16px;
+}
+
+</style>
 
 <section id="intro" class="clearfix">
     <div class="container">
@@ -108,10 +133,116 @@ $hour_support = $secs / 1440;
 
         </div>
     </section><!-- #about -->
+ <!--==========================
+      Clients Section
+    ============================-->
+    <section id="testimonials" class="section-bg">
+      <div class="container">
 
+        <header class="section-header">
+          <h3>Testimoni</h3>
+        </header>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <div class="owl-carousel testimonials-carousel wow fadeInUp">
+    
+              <div class="testimonial-item">
+                <img src="<?php echo base_url() ?>assets/NewBiz/img/antony.JPG" class="testimonial-img" alt="">
+                <h3>Antony Dermawan</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <p>
+                  <iframe name='left_video' src="https://www.youtube.com/embed/3TAZEBaOI_k" frameborder="0" allowfullscreen></iframe>
+
+
+                </p>
+              </div>
+
+
+
+              <div class="testimonial-item">
+                <img src="<?php echo base_url() ?>assets/NewBiz/img/jefri.jpeg" class="testimonial-img" alt="">
+                <h3>Jeffryanto Wijaya</h3>
+                <h4>Salah Satu Pemilik Gerai Kedai Kopi</h4>
+                <p>
+                  Dengan menggunakan kasir acien, saya semakin mudah dalam mengelola usaha saya dan harga langganannya cukup kompetitif. <br>
+                  Thank you <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a>
+
+
+                </p>
+              </div>
+
+
+              <div class="testimonial-item">
+                <img src="<?php echo base_url() ?>assets/NewBiz/img/bidiana.jpg" class="testimonial-img" alt="">
+                <h3>Bidiana</h3>
+                <h4>Sales Engineer</h4>
+                <p>
+                  <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a> memiliki fitur yang lengkap, mudah digunakan, dan harganya yang sangat terjangkau. Tentu saja <a href='https://kasir-acien.online/' target='_blank'>kasir-acien.online</a> merupakan pilihan yang tepat untuk mendampingi usaha kita.
+
+
+                </p>
+              </div>
+    
+              
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </section><!-- #testimonials -->
+
+
+
+
+
+    <!--==========================
+      Why Us Section
+    ============================-->
+    <section id="why-us" class="wow fadeIn">
+        <div class="container">
+            <header class="section-header">
+                <h3>Our History!</h3>
+                
+            </header>
+
+            
+
+            <div class="row counters">
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up"><?=number_format($total_client_id+500)?></span>
+                    <p>Clients</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up"><?=number_format($total_users_id+500)?></span>
+                    <p>Users</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up"><?=number_format($hour_support)?></span>
+                    <p>Hours Of Support</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">19</span>
+                    <p>Hard Workers</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
     <!--==========================
       Services Section
     ============================-->
+
+
     <section id="services" class="section-bg">
         <div class="container">
 
@@ -164,45 +295,6 @@ $hour_support = $secs / 1440;
 
 
 
-
-    <!--==========================
-      Why Us Section
-    ============================-->
-    <section id="why-us" class="wow fadeIn">
-        <div class="container">
-            <header class="section-header">
-                <h3>Our History!</h3>
-                
-            </header>
-
-            
-
-            <div class="row counters">
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up"><?=number_format($total_client_id+500)?></span>
-                    <p>Clients</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up"><?=number_format($total_users_id+500)?></span>
-                    <p>Users</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up"><?=number_format($hour_support)?></span>
-                    <p>Hours Of Support</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">19</span>
-                    <p>Hard Workers</p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
 
 
 
