@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '3.138.245.19',
-	'username' => 'antony',
-	'password' => 'DZ}LPb^u7X<P3E@{',
+	'hostname' => '3.141.251.154',
+	'username' => 'kasir',
+	'password' => 'TNrQyHY;Uw5@Ry=t!U2mWNK"r5(%w>AW',
 	'database' => 'kasir',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
