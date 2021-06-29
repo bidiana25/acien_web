@@ -20,7 +20,7 @@ $hour_support = $secs / 1440;
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<a href="https://api.whatsapp.com/send?phone=6282129871101&text=Send20%a20%quote" class="float" target="_blank">
+<a href="https://api.whatsapp.com/send?phone=6285263635898&text=kasir-acien.online user" class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
 </a>
 
